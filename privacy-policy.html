@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy - WebFormKeeper</title>
+<style>
+  body { max-width: 720px; margin: 40px auto; padding: 0 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.7; color: #333; }
+  h1 { font-size: 24px; margin-bottom: 8px; }
+  h2 { font-size: 18px; margin-top: 28px; margin-bottom: 8px; color: #555; }
+  p { margin: 8px 0; }
+  code { background: #f4f4f4; padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+  th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
+  th { background: #f9f9f9; }
+  .date { color: #888; font-size: 14px; }
+</style>
+</head>
+<body>
+<h1>Privacy Policy</h1>
+<p class="date">Effective date: August 2026</p>
+
+<h2>Overview</h2>
+<p>WebFormKeeper is a browser extension that saves and fills web form data. <strong>All data is stored locally in your browser using <code>chrome.storage.local</code>. No data is uploaded to any server.</strong></p>
+
+<h2>Data Collection</h2>
+<p>WebFormKeeper collects the following data <strong>only when you manually click the "Collect" button</strong>:</p>
+<ul>
+  <li>Form field names, values, and types (text, radio, checkbox, select, textarea)</li>
+  <li>The normalized URL of the page where forms are collected</li>
+  <li>DOM element order (domIndex) for fields without a <code>name</code> attribute</li>
+</ul>
+<p><strong>Important:</strong> The extension does NOT automatically collect any data. All scanning is user-initiated.</p>
+
+<h2>Data Storage</h2>
+<table>
+  <tr><th>Storage Key</th><th>Content</th></tr>
+  <tr><td><code>wfk_records</code></td><td>Form snapshots keyed by normalized URL</td></tr>
+  <tr><td><code>wfk_meta</code></td><td>Usage quotas, license status, daily fill counter</td></tr>
+  <tr><td><code>wfk_settings</code></td><td>User preferences (hash route toggle)</td></tr>
+</table>
+<p>All data remains in your browser's local storage and is never transmitted externally.</p>
+
+<h2>Password Fields</h2>
+<p>WebFormKeeper may capture and store values from password fields if they are present on the page when you click "Collect". These values are stored locally only. Please be aware of this when using the extension on pages containing sensitive credentials.</p>
+
+<h2>Permissions</h2>
+<table>
+  <tr><th>Permission</th><th>Reason</th></tr>
+  <tr><td><code>storage</code></td><td>Save form snapshots and settings locally</td></tr>
+  <tr><td><code>activeTab</code></td><td>Access the current tab only when you click a button (no persistent access to all sites)</td></tr>
+</table>
+<p>The extension uses <code>chrome.scripting.executeScript</code> to inject content scripts on demand — it does NOT declare <code>&lt;all_urls&gt;</code> or any host permissions.</p>
+
+<h2>Third-Party Services</h2>
+<p>License key validation communicates with <code>api.annmax1983.com</code> to verify premium status. Only the license key, device hash, and plugin ID are sent. No form data or browsing history is transmitted.</p>
+
+<h2>Data Deletion</h2>
+<p>You can delete individual snapshots or all data through the extension popup. Uninstalling the extension removes all stored data.</p>
+
+<h2>Contact</h2>
+<p>For questions about this privacy policy, contact: <a href="mailto:support@annmax1983.com">support@annmax1983.com</a></p>
+</body>
+</html>

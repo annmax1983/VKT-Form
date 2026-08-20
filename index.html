@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebFormKeeper - Support</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: #1e1e2e;
+      color: #cdd6f4;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .card {
+      background: #181825;
+      border: 1px solid #313244;
+      border-radius: 16px;
+      max-width: 600px;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .banner {
+      background: linear-gradient(135deg, #1e1e2e, #313244);
+      padding: 40px 32px 32px;
+      text-align: center;
+    }
+    .banner-icon { font-size: 48px; margin-bottom: 12px; }
+    .banner h1 {
+      font-size: 28px;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #4fc3f7, #a6e3a1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .banner p { color: #a6adc8; font-size: 14px; }
+    .body { padding: 28px 32px; }
+    .body h2 {
+      font-size: 16px;
+      color: #a6e3a1;
+      margin-bottom: 14px;
+    }
+    .body ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+    .body li {
+      padding: 6px 0;
+      font-size: 14px;
+      color: #bac2de;
+      border-bottom: 1px solid #1e1e2e;
+    }
+    .body li:last-child { border-bottom: none; }
+    .body li::before { content: '✓ '; color: #a6e3a1; }
+    .thank { margin-top: 20px; }
+    .thank p {
+      font-size: 14px;
+      color: #bac2de;
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+    .heart { color: #f38ba8; }
+    .cta {
+      text-align: center;
+      padding: 20px 32px 28px;
+      border-top: 1px solid #313244;
+    }
+    .cta p { font-size: 13px; color: #6c7086; margin-bottom: 14px; }
+    .support-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      background: linear-gradient(135deg, #4fc3f7, #a6e3a1);
+      color: #1e1e2e;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .support-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(79,195,247,0.3);
+    }
+    .footer {
+      padding: 16px 32px;
+      text-align: center;
+      font-size: 12px;
+      color: #6c7086;
+      border-top: 1px solid #1e1e2e;
+    }
+    .footer a { color: #4fc3f7; text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="banner">
+      <div class="banner-icon">📋</div>
+      <h1>WebFormKeeper</h1>
+      <p data-i18n="tagline"></p>
+    </div>
+
+    <div class="body">
+      <h2 data-i18n="featuresTitle"></h2>
+      <ul id="featureList"></ul>
+
+      <h2 data-i18n="thankTitle"></h2>
+      <div class="thank" id="thankText"></div>
+    </div>
+
+    <div class="cta">
+      <p data-i18n="ctaHint"></p>
+      <a class="support-btn" href="https://ko-fi.com/annmax?ref=webformkeeper" target="_blank" rel="noopener">
+        <img src="./assets/coffee.png" alt="" width="28" height="22" style="vertical-align:middle"> <span data-i18n="btnText"></span>
+      </a>
+      <p class="disclaimer" data-i18n="donateDisclaimer" style="margin-top:12px;font-size:12px;color:#585b70;line-height:1.6;white-space:pre-line;"></p>
+    </div>
+
+    <div class="footer">
+      <a href="https://gitee.com/xinsiyu/WebFormKeeper" target="_blank" rel="noopener">Gitee</a>
+      &nbsp;·&nbsp;
+      <a href="https://annmax1983.github.io/WebFormKeeper/privacy-policy.html" target="_blank" rel="noopener" data-i18n="privacyPolicy">Privacy Policy</a>
+      &nbsp;·&nbsp; Copyright © 2026 WebFormKeeper
+    </div>
+  </div>
+
+  <script>
+    const I18N = {
+      zh: {
+        tagline: '表单快照记忆 · 全部数据本地存储',
+        featuresTitle: '✨ 功能特色',
+        features: [
+          '一键保存网页表单快照，所有字段完整记录',
+          '智能回填：name 属性优先匹配，DOM 序号降级兜底',
+          '兼容 Vue / React 等 SPA 框架，正确触发事件',
+          '全部数据存储在浏览器本地，不上传任何云端',
+          '支持 JSON 导出导入备份，数据不丢失',
+          '支持 6 种语言，自动匹配浏览器语言'
+        ],
+        thankTitle: '💌 想对你说',
+        thank: [
+          '感谢你使用 WebFormKeeper。做这个工具是因为每次注册、登录都要重复填表单太烦了。',
+          '如果它也帮到了你，那对我来说就是最好的回报。',
+          '当然，如果你愿意请我喝一杯咖啡 <span class="heart">☕</span>，我会非常开心——这会让我更有动力继续打磨它。'
+        ],
+        ctaHint: '点击下方按钮，跳转到支持页面',
+        btnText: 'Support My Work',
+        donateDisclaimer: 'Ko-fi 赞助为自愿行为，不影响任何功能使用。\n赞助与扩展功能无绑定关系，仅为用户自发支持。',
+        privacyPolicy: '隐私条款'
+      },
+      en: {
+        tagline: 'Form Snapshot Memory · All Data Stored Locally',
+        featuresTitle: '✨ Features',
+        features: [
+          'One-click save web form snapshots with all fields recorded',
+          'Smart fill-back: name attribute priority, DOM order fallback',
+          'Compatible with Vue / React SPA frameworks, correct event dispatch',
+          'All data stored locally in browser, no cloud upload',
+          'JSON export/import backup, never lose your data',
+          'Supports 6 languages, auto-detected from browser'
+        ],
+        thankTitle: '💌 A Note to You',
+        thank: [
+          'Thank you for using WebFormKeeper. I built this tool because I was tired of filling the same forms over and over again.',
+          'If it helps you too, that\'s already the best reward I could ask for.',
+          'Of course, if you\'d like to <span class="heart">☕</span> buy me a coffee, it would truly make my day — and keep me motivated to make WebFormKeeper even better.'
+        ],
+        ctaHint: 'Click the button below to visit the support page',
+        btnText: 'Support My Work',
+        donateDisclaimer: 'Ko-fi sponsorship is completely voluntary and does not affect any features.\nSponsorship is not tied to extension functionality — it is purely a way to show support.',
+        privacyPolicy: 'Privacy Policy'
+      },
+      ja: {
+        tagline: 'フォームスナップメモリ · すべてローカル保存',
+        featuresTitle: '✨ 機能紹介',
+        features: [
+          'ワンクリックでWebフォームスナップショットを保存',
+          'スマート入力：name属性優先、DOM順序フォールバック',
+          'Vue / React SPAフレームワーク対応、正確なイベント発火',
+          'すべてのデータはブラウザにローカル保存、クラウドなし',
+          'JSONエクスポート/インポート、データ紛失を防止',
+          '6言語対応、ブラウザの言語を自動検出'
+        ],
+        thankTitle: '💌 ご利用ありがとうございます',
+        thank: [
+          'WebFormKeeperをご利用いただきありがとうございます。同じフォームを何度も入力するのにうんざりして作りました。',
+          'もし皆様のお役にも立てているなら、それが何よりの喜びです。',
+          'もしよろしければ、コーヒーを <span class="heart">☕</span> 一杯おごっていただけると、とても嬉しいです。より良いツールを作る励みになります。'
+        ],
+        ctaHint: '下のボタンをクリックするとサポートページに移動します',
+        btnText: 'Support My Work',
+        donateDisclaimer: 'Ko-fiスポンサーシップは完全に任意であり、機能には影響しません。\nスポンサーシップは拡張機能と紐付いておらず、純粋な応援です。',
+        privacyPolicy: 'プライバシーポリシー'
+      },
+      de: {
+        tagline: 'Formular-Snapshot-Speicher · Alle Daten lokal gespeichert',
+        featuresTitle: '✨ Funktionen',
+        features: [
+          'Ein-Klick-Speicherung von Webformular-Snapshots',
+          'Intelligentes Ausfüllen: Name-Attribut priorisiert, DOM-Reihenfolge als Fallback',
+          'Kompatibel mit Vue / React SPA-Frameworks, korrekte Event-Auslösung',
+          'Alle Daten lokal im Browser gespeichert, kein Cloud-Upload',
+          'JSON-Export/Import-Backup, keine Datenverluste',
+          'Unterstützt 6 Sprachen, automatisch erkannt vom Browser'
+        ],
+        thankTitle: '💌 Ein paar Worte an Sie',
+        thank: [
+          'Vielen Dank, dass Sie WebFormKeeper nutzen. Ich habe dieses Tool gebaut, weil ich genug hatte, immer wieder dieselben Formulare auszufüllen.',
+          'Wenn es auch Ihnen hilft, ist das die beste Belohnung, die ich mir wünschen kann.',
+          'Wenn Sie mir gerne einen <span class="heart">☕</span> Kaffee ausgeben möchten, würde mich das sehr freuen — und mich motivieren, WebFormKeeper noch besser zu machen.'
+        ],
+        ctaHint: 'Klicken Sie auf die Schaltfläche unten, um zur Support-Seite zu gelangen',
+        btnText: 'Support My Work',
+        donateDisclaimer: 'Ko-fi-Sponsoring ist vollkommen freiwillig und beeinflusst keine Funktionen.\nSponsoring ist nicht an Erweiterungsfunktionen gebunden — es ist rein eine Unterstützung.',
+        privacyPolicy: 'Datenschutzrichtlinie'
+      },
+      es: {
+        tagline: 'Memoria de capturas de formulario · Datos almacenados localmente',
+        featuresTitle: '✨ Características',
+        features: [
+          'Guarda capturas de formularios web con un clic',
+          'Relleno inteligente: atributo name primero, orden DOM como respaldo',
+          'Compatible con frameworks SPA Vue / React, despacho de eventos correcto',
+          'Todos los datos almacenados localmente, sin subida a la nube',
+          'Exportación/importación JSON, sin pérdida de datos',
+          'Soporta 6 idiomas, detectados automáticamente desde el navegador'
+        ],
+        thankTitle: '💌 Unas palabras para ti',
+        thank: [
+          'Gracias por usar WebFormKeeper. Construí esta herramienta porque estaba harto de rellenar los mismos formularios una y otra vez.',
+          'Si también te ayuda a ti, esa ya es la mejor recompensa que puedo pedir.',
+          'Por supuesto, si quieres invitarme a un <span class="heart">☕</span> café, me haría muy feliz — y me motivaría a seguir mejorando WebFormKeeper.'
+        ],
+        ctaHint: 'Haz clic en el botón de abajo para visitar la página de soporte',
+        btnText: 'Support My Work',
+        donateDisclaimer: 'El patrocinio de Ko-fi es completamente voluntario y no afecta ninguna función.\nEl patrocinio no está vinculado a la funcionalidad de la extensión — es simplemente una forma de apoyo.',
+        privacyPolicy: 'Política de Privacidad'
+      },
+      fr: {
+        tagline: 'Mémoire de captures de formulaire · Données stockées localement',
+        featuresTitle: '✨ Fonctionnalités',
+        features: [
+          'Enregistrez des captures de formulaires web en un clic',
+          'Remplissage intelligent : attribut name prioritaire, ordre DOM en secours',
+          'Compatible avec les frameworks SPA Vue / React, dispatch d\'événements correct',
+          'Toutes les données stockées localement, sans upload cloud',
+          'Export/import JSON, aucune perte de données',
+          'Prend en charge 6 langues, détectées automatiquement depuis le navigateur'
+        ],
+        thankTitle: '💌 Un petit mot pour vous',
+        thank: [
+          'Merci d\'utiliser WebFormKeeper. J\'ai construit cet outil parce que j\'en avais assez de remplir les mêmes formulaires encore et encore.',
+          'S\'il vous aide aussi, c\'est déjà la plus belle récompense.',
+          'Bien sûr, si vous souhaitez m\'offrir un <span class="heart">☕</span> café, cela me ferait très plaisir — et me motiverait à améliorer WebFormKeeper encore davantage.'
+        ],
+        ctaHint: 'Cliquez sur le bouton ci-dessous pour accéder à la page de soutien',
+        btnText: 'Support My Work',
+        donateDisclaimer: 'Le parrainage Ko-fi est entièrement volontaire et n\'affecte aucune fonctionnalité.\nLe parrainage n\'est pas lié aux fonctionnalités de l\'extension — c\'est purement un soutien.',
+        privacyPolicy: 'Politique de Confidentialité'
+      }
+    };
+
+    function detectLang() {
+      const code = (navigator.language || 'en').split('-')[0].toLowerCase();
+      return I18N[code] ? code : 'en';
+    }
+
+    function applyLang(lang) {
+      const t = I18N[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) el.textContent = t[key];
+      });
+      document.getElementById('featureList').innerHTML = t.features.map(f => `<li>${f}</li>`).join('');
+      document.getElementById('thankText').innerHTML = t.thank.map(p => `<p>${p}</p>`).join('');
+      document.documentElement.lang = lang;
+    }
+
+    applyLang(detectLang());
+  </script>
+</body>
+</html>
