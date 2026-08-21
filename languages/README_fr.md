@@ -1,4 +1,4 @@
-# WebFormKeeper
+# vkt-form
 [English](../README.md) | [中文](README_zh.md) | [Español](README_es.md) | [Deutsch](README_de.md) | [日本語](README_ja.md) | Français
 
 Extension de capture et remplissage automatique de formulaires web — Enregistrez en un clic, remplissez en un clic. Toutes les données stockées localement.
@@ -7,9 +7,9 @@ Extension de capture et remplissage automatique de formulaires web — Enregistr
 
 ---
 
-## Pourquoi WebFormKeeper ?
+## Pourquoi vkt-form ?
 
-Remplir les mêmes formulaires encore et encore est fastidieux. Avec WebFormKeeper, enregistrez une fois et remplissez quand vous voulez.
+Remplir les mêmes formulaires encore et encore est fastidieux. Avec vkt-form, enregistrez une fois et remplissez quand vous voulez.
 
 | Avantage | Détails |
 |----------|---------|
@@ -58,7 +58,7 @@ Remplir les mêmes formulaires encore et encore est fastidieux. Avec WebFormKeep
    - **Chrome** : `chrome://extensions/`
    - **Edge** : `edge://extensions/`
 2. Activer le **Mode développeur**
-3. **Charger l'extension non empaquetée** → sélectionner le dossier `WebFormKeeper`
+3. **Charger l'extension non empaquetée** → sélectionner le dossier `vkt-form`
 4. L'icône apparaît dans la barre d'outils
 
 ---
@@ -104,8 +104,15 @@ Remplir les mêmes formulaires encore et encore est fastidieux. Avec WebFormKeep
 
 ---
 
+---
+
+## Avis sur le code source
+
+> ⚠️ **Ce dépôt ne publie pas le code source.** Il contient uniquement la documentation d'utilisation, les notes de mise à jour et les ressources d'assistance. L'extension est distribuée exclusivement via le Chrome Web Store. Aucun package d'installation hors ligne ni code source pour les utilisateurs finaux n'est fourni.
+
+
 ## ❤️ Soutien
 
-Si WebFormKeeper vous aide, n'hésitez pas à nous soutenir !
+Si vkt-form vous aide, n'hésitez pas à nous soutenir !
 
-**[👉 Soutenir WebFormKeeper](https://annmax1983.github.io/WebFormKeeper/)**
+**[👉 Soutenir vkt-form](https://annmax1983.github.io/vkt-form/)**

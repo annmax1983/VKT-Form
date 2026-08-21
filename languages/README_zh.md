@@ -1,4 +1,4 @@
-# WebFormKeeper
+# vkt-form
 [English](../README.md) | 中文 | [Español](README_es.md) | [Deutsch](README_de.md) | [日本語](README_ja.md) | [Français](README_fr.md)
 
 浏览器表单快照记忆填充插件 — 一键保存表单，一键回填。全部数据存储在浏览器本地，不上传云端。
@@ -7,9 +7,9 @@
 
 ---
 
-## 为什么选择 WebFormKeeper？
+## 为什么选择 vkt-form？
 
-每次注册、登录都要重复填写相同的表单太烦了。WebFormKeeper 让你保存一次，以后一键回填。
+每次注册、登录都要重复填写相同的表单太烦了。vkt-form 让你保存一次，以后一键回填。
 
 | 优势 | 详情 |
 |------|------|
@@ -58,8 +58,8 @@
    - **Chrome**：`chrome://extensions/`
    - **Edge**：`edge://extensions/`
 2. 打开右上角 **开发者模式**
-3. 点击 **加载已解压的扩展程序**，选择 `WebFormKeeper` 文件夹
-4. 工具栏出现 WebFormKeeper 图标
+3. 点击 **加载已解压的扩展程序**，选择 `vkt-form` 文件夹
+4. 工具栏出现 vkt-form 图标
 
 ---
 
@@ -68,7 +68,7 @@
 ### 保存表单快照
 
 1. 访问包含表单的网页
-2. 点击工具栏的 WebFormKeeper 图标
+2. 点击工具栏的 vkt-form 图标
 3. 点击 **🔄 刷新收集** 按钮
 4. 页面表单字段被扫描并保存
 
@@ -95,7 +95,7 @@
 
 ## 隐私保护
 
-WebFormKeeper 以隐私为核心设计原则：
+vkt-form 以隐私为核心设计原则：
 
 - ✅ **无数据上传** — 所有数据存储在 `chrome.storage.local`
 - ✅ **用户手动触发** — 不自动采集，必须点击按钮才扫描
@@ -114,6 +114,15 @@ WebFormKeeper 以隐私为核心设计原则：
 
 ---
 
+## 免费 vs 高级
+
+| | 免费 | 高级 |
+|---|:---:|:---:|
+| 快照数量 | 最多 5 条 | 无限 |
+| 每日填充 | 最多 20 次 | 无限 |
+| 导出 / 导入 JSON | — | ✅ |
+| 优先支持 | — | ✅ |
+
 ## 免费版限制
 
 | 项目 | 限制 |
@@ -121,7 +130,7 @@ WebFormKeeper 以隐私为核心设计原则：
 | 快照数量 | 最多 5 条不同 URL |
 | 每日填充 | 最多 20 次 |
 
-高级版 License 密钥可解除全部限制。
+高级版 License 密钥可解除全部限制，并解锁 JSON 导出/导入和优先支持。
 
 ---
 
@@ -133,6 +142,6 @@ WebFormKeeper 以隐私为核心设计原则：
 
 ## ❤️ 支持我们
 
-如果你觉得 WebFormKeeper 有帮助，欢迎支持我们！
+如果你觉得 vkt-form 有帮助，欢迎支持我们！
 
-**[👉 支持 WebFormKeeper](https://annmax1983.github.io/WebFormKeeper/)**
+**[👉 支持 vkt-form](https://annmax1983.github.io/vkt-form/)**

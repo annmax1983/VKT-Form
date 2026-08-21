@@ -1,4 +1,6 @@
-# WebFormKeeper - Form Snapshot & Auto-Fill
+# vkt-form - Form Snapshot & Auto-Fill
+
+English | [中文](languages/README_zh.md) | [Español](languages/README_es.md) | [Deutsch](languages/README_de.md) | [日本語](languages/README_ja.md) | [Français](languages/README_fr.md)
 
 A browser extension that saves web form snapshots and auto-fills them later. All data stored locally, no cloud upload.
 
@@ -37,8 +39,17 @@ npm install
 npm run build
 ```
 
-Output: `publish/webformkeeper-v{version}.zip`
+Output: `publish/vkt-form-v{version}.zip`
+
+## Free vs Premium
+
+| | Free | Premium |
+|---|:---:|:---:|
+| Snapshots | 5 max | Unlimited |
+| Fills per day | 20 | Unlimited |
+| Export / Import JSON | — | ✅ |
+| Priority support | — | ✅ |
 
 ## License
 
-Free version: 5 snapshots, 20 fills/day. Premium key unlocks unlimited usage.
+Free version: 5 snapshots, 20 fills/day. Premium key unlocks unlimited usage, JSON export/import, and priority support.

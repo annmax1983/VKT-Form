@@ -1,4 +1,4 @@
-# WebFormKeeper
+# vkt-form
 [English](../README.md) | [中文](README_zh.md) | [Español](README_es.md) | Deutsch | [日本語](README_ja.md) | [Français](README_fr.md)
 
 Browser-Formular-Snapshot-Erweiterung — Ein-Klick-Speicherung, Ein-Klick-Ausfüllung. Alle Daten lokal im Browser gespeichert.
@@ -7,9 +7,9 @@ Browser-Formular-Snapshot-Erweiterung — Ein-Klick-Speicherung, Ein-Klick-Ausf�
 
 ---
 
-## Warum WebFormKeeper?
+## Warum vkt-form?
 
-Jedes Mal dieselben Formulare auszufüllen ist mühsam. Mit WebFormKeeper einmal speichern und jederzeit mit einem Klick ausfüllen.
+Jedes Mal dieselben Formulare auszufüllen ist mühsam. Mit vkt-form einmal speichern und jederzeit mit einem Klick ausfüllen.
 
 | Vorteil | Details |
 |---------|---------|
@@ -58,7 +58,7 @@ Jedes Mal dieselben Formulare auszufüllen ist mühsam. Mit WebFormKeeper einmal
    - **Chrome**: `chrome://extensions/`
    - **Edge**: `edge://extensions/`
 2. **Entwicklermodus** aktivieren (oben rechts)
-3. **Entpackte Erweiterung laden** → `WebFormKeeper`-Ordner wählen
+3. **Entpackte Erweiterung laden** → `vkt-form`-Ordner wählen
 4. Symbol in der Toolbar erscheint
 
 ---
@@ -104,8 +104,15 @@ Jedes Mal dieselben Formulare auszufüllen ist mühsam. Mit WebFormKeeper einmal
 
 ---
 
+---
+
+## Hinweis zum Quellcode
+
+> ⚠️ **Dieses Repository veröffentlicht keinen Quellcode.** Es enthält nur Nutzerdokumentation, Versionshinweise und Support-Ressourcen. Die Erweiterung wird ausschließlich über den Chrome Web Store vertrieben. Es werden keine Offline-Installationspakete oder Quellcodes für Endbenutzer bereitgestellt.
+
+
 ## ❤️ Unterstützung
 
-Wenn WebFormKeeper Ihnen hilft, unterstützen Sie uns gerne!
+Wenn vkt-form Ihnen hilft, unterstützen Sie uns gerne!
 
-**[👉 WebFormKeeper unterstützen](https://annmax1983.github.io/WebFormKeeper/)**
+**[👉 vkt-form unterstützen](https://annmax1983.github.io/vkt-form/)**

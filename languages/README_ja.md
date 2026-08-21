@@ -1,4 +1,4 @@
-# WebFormKeeper
+# vkt-form
 [English](../README.md) | [中文](README_zh.md) | [Español](README_es.md) | [Deutsch](README_de.md) | 日本語 | [Français](README_fr.md)
 
 ブラウザフォームスナップショット記憶入力プラグイン — ワンクリックでフォームを保存し、ワンクリックで入力。すべてのデータはブラウザにローカル保存。
@@ -7,9 +7,9 @@
 
 ---
 
-## なぜ WebFormKeeper？
+## なぜ vkt-form？
 
-毎回同じフォームに入力するのは面倒です。WebFormKeeper で一度保存すれば、いつでもワンクリックで入力できます。
+毎回同じフォームに入力するのは面倒です。vkt-form で一度保存すれば、いつでもワンクリックで入力できます。
 
 | 利点 | 詳細 |
 |------|------|
@@ -58,7 +58,7 @@
    - **Chrome**：`chrome://extensions/`
    - **Edge**：`edge://extensions/`
 2. 右上の **デベロッパーモード** をON
-3. **パッケージ化されていない拡張機能を読み込む** をクリック、`WebFormKeeper` フォルダを選択
+3. **パッケージ化されていない拡張機能を読み込む** をクリック、`vkt-form` フォルダを選択
 4. ツールバーにアイコン表示
 
 ---
@@ -104,8 +104,15 @@
 
 ---
 
+---
+
+## ソースコードについて
+
+> ⚠️ **このリポジトリではソースコードは公開していません。** 使用方法のドキュメント、リリースノート、サポート情報のみを含みます。拡張機能はChrome Web Storeを通じてのみ配布されます。オフラインインストールパッケージやエンドユーザー向けソースコードは提供されません。
+
+
 ## ❤️ サポート
 
-WebFormKeeperが役に立ったら、ぜひサポートをお願いします！
+vkt-formが役に立ったら、ぜひサポートをお願いします！
 
-**[👉 WebFormKeeperをサポート](https://annmax1983.github.io/WebFormKeeper/)**
+**[👉 vkt-formをサポート](https://annmax1983.github.io/vkt-form/)**
