@@ -1,118 +1,82 @@
-# vkt-form
+# vkt-form — Capture et auto-remplissage de formulaires
+
 [English](../README.md) | [中文](README_zh.md) | [Español](README_es.md) | [Deutsch](README_de.md) | [日本語](README_ja.md) | Français
 
-Extension de capture et remplissage automatique de formulaires web — Enregistrez en un clic, remplissez en un clic. Toutes les données stockées localement.
-
-> Basé sur Chromium · Manifest V3 · Aucun suivi · Capture manuelle par l'utilisateur
-
----
-
-## Pourquoi vkt-form ?
-
-Remplir les mêmes formulaires encore et encore est fastidieux. Avec vkt-form, enregistrez une fois et remplissez quand vous voulez.
-
-| Avantage | Détails |
-|----------|---------|
-| 🔒 **Confidentialité** | Toutes les données dans le navigateur. Aucun serveur, aucun upload, aucun suivi. |
-| ⚡ **Un clic** | « Collecter » pour sauvegarder, « Remplir » pour restaurer. |
-| 🧠 **Correspondance intelligente** | Attribut `name` en priorité, ordre DOM en secours, compatible Vue/React. |
-| 💾 **Pas de perte de données** | Export/import JSON. |
-| 🆓 **Gratuit** | 5 captures, 20 remplissages/jour. |
-| 🌍 **6 langues** | Détection automatique de la langue du navigateur. |
-
----
+Une extension de navigateur qui sauvegarde des instantanés de formulaires web et les remplit automatiquement plus tard. Toutes les données stockées localement, aucun envoi cloud.
 
 ## Fonctionnalités
 
-| Fonction | Description |
-|----------|-------------|
-| 📋 **Capture de formulaires** | Bouton pour scanner tous les `input/select/textarea` de la page. |
-| ⚡ **Remplissage intelligent** | Priorité : attribut `name`, secours : `domIndex + tagName + type`. |
-| 🔄 **Compatible frameworks** | Événements `input`, `change`, `click`, compatible Vue/React. |
-| 📊 **Gestion des quotas** | Gratuit : 5 captures, 20/jour. Premium : illimité. |
-| 🔑 **Licence** | Activation Premium depuis la page des paramètres. |
-| 📥📤 **Import/Export** | Sauvegarde et restauration JSON. |
-| 🌐 **Normalisation d'URL** | Supprime requêtes/fragments, minuscules, hash optionnel (SPA). |
-| 🌍 **Multi-langue** | English, 中文, 日本語, Español, Deutsch, Français. |
+- **Collecte de formulaire en un clic** — Scannez et sauvegardez tous les champs de formulaire de n'importe quelle page
+- **Détection approfondie** — Shadow DOM, iframes et éditeurs de texte riche inclus, ainsi que les étapes masquées d'un formulaire à plusieurs étapes
+- **Auto-remplissage conscient du framework** — Écrit via le setter natif et le véritable pipeline d'édition du navigateur, donc les composants contrôlés de Vue / React / Angular mettent réellement à jour leur état
+- **Vérification après écriture** — Chaque champ est relu après écriture ; les échecs sont signalés au lieu d'être ignorés
+- **Calibration des champs** — Associez un champ à un élément de la page une fois, il sera toujours rempli ensuite
+- **100 % local** — Toutes les données stockées dans `chrome.storage.local`, jamais envoyées
+- **Export/Import** — Sauvegarde et restauration JSON
+- **Niveau gratuit** — 5 instantanés, 20 remplissages/jour ; le Premium supprime toutes les limites
 
----
+## Fonctionnement
 
-## Navigateurs compatibles
+1. Visitez une page contenant des formulaires, cliquez sur **Collecter** pour scanner et sauvegarder
+2. Revenez sur la page plus tard, cliquez sur **Remplir** pour remplir automatiquement tous les champs
+3. Gérez les instantanés dans le panneau latéral (remplir un instantané, mettre à jour, calibrer, supprimer)
 
-| Navigateur | Statut |
-|------------|--------|
-| Google Chrome | ✅ Complet |
-| Microsoft Edge | ✅ Complet |
-| Brave | ✅ Supporté |
-| Opera | ✅ Supporté |
-| Vivaldi | ✅ Supporté |
-| Navigateurs Chromium | ✅ Supporté (Manifest V3) |
+## Correspondance des champs
 
----
+Chaque champ enregistré est noté face à tous les champs de la page, et le meilleur candidat au-dessus du seuil de confiance l'emporte. En dessous, le champ est signalé comme introuvable plutôt que rempli dans la mauvaise case.
 
-## Installation
+Signaux, par ordre approximatif de poids :
 
-### Mode développeur
+- Attributs `name`, `id` et `autocomplete`
+- Texte du libellé, `aria-label`, `<label>` englobant, placeholder, texte proche
+- Jeton sémantique (`username`, `phone`, `email`, `address`, …) en chinois et en anglais
+- Chemin structurel et position ligne/colonne dans les conteneurs répétés (lignes de tableau)
+- Ordre DOM, en dernier recours
 
-1. Ouvrir la page des extensions :
-   - **Chrome** : `chrome://extensions/`
-   - **Edge** : `edge://extensions/`
-2. Activer le **Mode développeur**
-3. **Charger l'extension non empaquetée** → sélectionner le dossier `vkt-form`
-4. L'icône apparaît dans la barre d'outils
+La correspondance reposant sur des descripteurs et non sur des positions, un instantané fonctionne encore si le site renomme ses champs, réordonne le formulaire ou le sert depuis une autre URL.
 
----
+## Remplissage
 
-## Utilisation
+Chaque champ est écrit avec des stratégies progressives, et la valeur est relue après chaque tentative :
 
-### Enregistrer une capture de formulaire
+1. **Setter natif + événements** — écrit via le setter de `HTMLInputElement.prototype` et déclenche `beforeinput` / `input` / `change`. Passer par le prototype est ce qui fait réagir le suivi des modifications de React.
+2. **Déclencheurs de validation** — `blur` / `focusout` pour les composants qui n'enregistrent qu'à la perte du focus.
+3. **Pipeline d'édition réel** — `document.execCommand('insertText')` après focus et sélection ; les événements produits sont indiscernables d'une frappe réelle. C'est aussi ainsi que sont remplis les éditeurs de texte riche.
+4. **Adaptateur de composants** — pour les selects en div (Element Plus, Ant Design, Arco, Naive UI, Vant, …), il ouvre la liste comme le ferait un utilisateur et clique sur l'option portant la valeur enregistrée.
+5. **Mode débogueur** — désactivé par défaut ; il utilise le débogueur du navigateur pour produire des événements d'entrée de confiance sur les composants qui rejettent tout le reste. Chrome n'autorise pas la demande de cette permission à l'exécution : elle est accordée à l'installation, mais n'est utilisée qu'après activation du mode, et la connexion est coupée dès le remplissage terminé (une bannière de débogage s'affiche pendant ce temps).
 
-1. Visiter une page avec un formulaire
-2. Cliquer sur l'icône dans la barre
-3. Cliquer sur **🔄 Collecter**
-4. Les champs sont scannés et enregistrés
+Les champs toujours introuvables sont retentés pendant quelques secondes, ce qui permet aussi de remplir les formulaires rendus tardivement ou affichés conditionnellement.
 
-### Remplissage automatique
+## Calibration des champs
 
-**Méthode A : Correspondance page actuelle**
-1. Retourner sur la page enregistrée
-2. Cliquer sur **⚡ Remplir**
-3. Remplissage automatique
+Les heuristiques couvrent la plupart des pages ; pour le reste, il y a la calibration. Ouvrez le panneau 🎯 d'un instantané, choisissez un champ, cliquez sur **Associer**, puis cliquez sur ce champ dans la page. L'association est enregistrée dans l'instantané et reste toujours prioritaire, quoi que fasse le site ensuite.
 
-**Méthode B : Remplir une capture spécifique**
-1. Trouver l'enregistrement dans la liste
-2. Cliquer sur **Remplir celle-ci**
-3. Remplissage forcé avec cette capture
+## Normalisation des URLs
 
----
+Les instantanés sont indexés par URL normalisée :
+- Paramètres de requête et fragments supprimés
+- Domaine en minuscules
+- Barres obliques finales normalisées
+- Optionnel : conserver le hash route pour les applications SPA (bascule dans les Paramètres)
 
-## Confidentialité
+## Build
 
-- ✅ **Aucun upload** — Stockage dans `chrome.storage.local`
-- ✅ **Capture manuelle** — Aucun scan automatique
-- ✅ **Aucun suivi** — Pas de télémétrie ni d'appels distants
-- ✅ **Permissions minimales** — Uniquement `storage` et `activeTab`
+```bash
+npm install
+npm run build
+```
 
----
+Résultat : `publish/webformkeeper-v{version}.zip`
 
-## Permissions
+## Gratuit vs Premium
 
-| Permission | But |
-|------------|-----|
-| `storage` | Stockage local des captures et paramètres |
-| `activeTab` | Accès à l'onglet actuel uniquement au clic |
+| | Gratuit | Premium |
+|---|:---:|:---:|
+| Instantanés | 5 max | Illimité |
+| Remplissages par jour | 20 | Illimité |
+| Export / Import JSON | — | ✅ |
+| Support prioritaire | — | ✅ |
 
----
+## Licence
 
----
-
-## Avis sur le code source
-
-> ⚠️ **Ce dépôt ne publie pas le code source.** Il contient uniquement la documentation d'utilisation, les notes de mise à jour et les ressources d'assistance. L'extension est distribuée exclusivement via le Chrome Web Store. Aucun package d'installation hors ligne ni code source pour les utilisateurs finaux n'est fourni.
-
-
-## ❤️ Soutien
-
-Si vkt-form vous aide, n'hésitez pas à nous soutenir !
-
-**[👉 Soutenir vkt-form](https://annmax1983.github.io/vkt-form/)**
+Version gratuite : 5 instantanés, 20 remplissages/jour. La clé Premium débloque l'utilisation illimitée, l'export/import JSON et le support prioritaire.

@@ -1,118 +1,82 @@
-# vkt-form
+# vkt-form — Formular-Snapshot & Auto-Fill
+
 [English](../README.md) | [中文](README_zh.md) | [Español](README_es.md) | Deutsch | [日本語](README_ja.md) | [Français](README_fr.md)
 
-Browser-Formular-Snapshot-Erweiterung — Ein-Klick-Speicherung, Ein-Klick-Ausfüllung. Alle Daten lokal im Browser gespeichert.
-
-> Chromium-basiert · Manifest V3 · Kein Tracking · Benutzergesteuerte Erfassung
-
----
-
-## Warum vkt-form?
-
-Jedes Mal dieselben Formulare auszufüllen ist mühsam. Mit vkt-form einmal speichern und jederzeit mit einem Klick ausfüllen.
-
-| Vorteil | Details |
-|---------|---------|
-| 🔒 **Datenschutz** | Alle Daten lokal im Browser. Kein Server, kein Upload, kein Tracking. |
-| ⚡ **Ein-Klick-Bedienung** | „Erfassen" zum Speichern, „Ausfüllen" zum Wiederherstellen. |
-| 🧠 **Intelligente Zuordnung** | Name-Attribut priorisiert, DOM-Reihenfolge als Fallback, Vue/React-kompatibel. |
-| 💾 **Datenverlust verhindern** | JSON-Export/Import-Backup. |
-| 🆓 **Kostenlos nutzbar** | 5 Snapshots, 20 Ausfüllungen/Tag. |
-| 🌍 **6 Sprachen** | Automatische Browser-Spracherkennung. |
-
----
+Eine Browser-Erweiterung, die Web-Formular-Snapshots speichert und sie später automatisch ausfüllt. Alle Daten lokal gespeichert, kein Cloud-Upload.
 
 ## Funktionen
 
-| Funktion | Beschreibung |
-|----------|-------------|
-| 📋 **Formularerfassung** | Button-gesteuert, scannt alle `input/select/textarea` Elemente der Seite. |
-| ⚡ **Intelligentes Ausfüllen** | Priorität: `name`-Attribut, Fallback: `domIndex + tagName + type`. |
-| 🔄 **Framework-kompatibel** | `input`, `change`, `click` Events, Vue/React-kompatibel. |
-| 📊 **Kontingentverwaltung** | Kostenlos: 5 Snapshots, 20/Tag. Premium: unbegrenzt. |
-| 🔑 **Lizenzschlüssel** | Eingabe im Einstellungsbereich für Premium-Aktivierung. |
-| 📥📤 **Import/Export** | JSON-Backup und Wiederherstellung. |
-| 🌐 **URL-Normalisierung** | Query/Fragment entfernt, Domain kleingeschrieben, Hash-Route optional (SPA). |
-| 🌍 **Mehrsprachig** | English, 中文, 日本語, Español, Deutsch, Français. |
+- **Ein-Klick-Formular-Erfassung** — Scannt und speichert alle Formularfelder auf jeder beliebigen Seite
+- **Tiefe Felderkennung** — Inklusive Shadow DOM, iframes und Rich-Text-Editoren sowie der inaktiven Schritte eines mehrstufigen Formulars
+- **Framework-bewusstes Auto-Fill** — Schreibt über den nativen Setter und die echte Bearbeitungspipeline des Browsers, sodass kontrollierte Komponenten von Vue / React / Angular ihren Zustand tatsächlich aktualisieren
+- **Rücklese-Prüfung** — Jedes Feld wird nach dem Schreiben zurückgelesen; Fehlschläge werden gemeldet statt stillschweigend ignoriert
+- **Feld-Kalibrierung** — Verknüpfen Sie ein Feld einmal mit einem Element auf der Seite, danach wird es immer ausgefüllt
+- **Vollständig lokal** — Alle Daten in `chrome.storage.local` gespeichert, nie hochgeladen
+- **Export/Import** — JSON-Backup und Wiederherstellung
+- **Kostenlose Stufe** — 5 Snapshots, 20 Füllungen/Tag; Premium hebt alle Beschränkungen auf
 
----
+## So funktioniert es
 
-## Unterstützte Browser
+1. Besuche eine beliebige Seite mit Formularen, klicke auf **Erfassen** zum Scannen und Speichern
+2. Kehre später zur Seite zurück, klicke auf **Füllen**, um alle Felder automatisch auszufüllen
+3. Verwalte Snapshots im Seitenpanel (bestimmten füllen, aktualisieren, kalibrieren, löschen)
 
-| Browser | Status |
-|---------|--------|
-| Google Chrome | ✅ Vollständig |
-| Microsoft Edge | ✅ Vollständig |
-| Brave | ✅ Unterstützt |
-| Opera | ✅ Unterstützt |
-| Vivaldi | ✅ Unterstützt |
-| Chromium-basierte Browser | ✅ Unterstützt (Manifest V3) |
+## Feld-Matching
 
----
+Jedes gespeicherte Feld wird gegen alle Felder der Seite bewertet; gewinnt der beste Kandidat über der Konfidenzschwelle. Alles darunter wird als „nicht gefunden" gemeldet, statt in das falsche Feld geschrieben zu werden.
 
-## Installation
+Signale, ungefähr nach Gewicht:
 
-### Entwicklermodus
+- Attribute `name`, `id` und `autocomplete`
+- Label-Text, `aria-label`, umschließendes `<label>`, Placeholder, umgebender Text
+- Semantisches Token (`username`, `phone`, `email`, `address`, …) auf Chinesisch und Englisch
+- Struktureller Pfad und Zeilen-/Spaltenposition in wiederkehrenden Containern (Tabellenzeilen)
+- DOM-Reihenfolge, als letzter Ausweg
 
-1. Erweiterungsseite öffnen:
-   - **Chrome**: `chrome://extensions/`
-   - **Edge**: `edge://extensions/`
-2. **Entwicklermodus** aktivieren (oben rechts)
-3. **Entpackte Erweiterung laden** → `vkt-form`-Ordner wählen
-4. Symbol in der Toolbar erscheint
+Da das Matching auf Deskriptoren statt auf Positionen basiert, funktioniert ein Snapshot weiterhin, wenn die Seite Feldnamen ändert, das Formular umsortiert oder es unter einer anderen URL ausliefert.
 
----
+## Füllen
 
-## Verwendung
+Jedes Feld wird mit eskalierenden Strategien geschrieben und nach jedem Versuch zurückgelesen:
 
-### Formular-Snapshot speichern
+1. **Nativer Setter + Events** — schreibt über den Setter von `HTMLInputElement.prototype` und löst `beforeinput` / `input` / `change` aus. Der Weg über das Prototyp ist der Grund, warum Reacts Änderungsverfolgung überhaupt anspringt.
+2. **Commit-Auslöser** — `blur` / `focusout` für Komponenten, die nur beim Verlassen des Feldes speichern.
+3. **Echte Bearbeitungspipeline** — `document.execCommand('insertText')` nach Fokus und Auswahl; die erzeugten Events sind von echter Tastatureingabe nicht zu unterscheiden. So werden auch Rich-Text-Editoren gefüllt.
+4. **Komponenten-Adapter** — für div-basierte Selects (Element Plus, Ant Design, Arco, Naive UI, Vant, …) öffnet er die Liste wie ein Benutzer und klickt die Option mit dem gespeicherten Wert an.
+5. **Debugger-Modus** — standardmäßig aus; er nutzt den Browser-Debugger, um vertrauenswürdige Eingabe-Events für Komponenten zu erzeugen, die alles andere ablehnen. Chrome erlaubt diese Berechtigung nicht zur Laufzeit, daher wird sie bei der Installation erteilt – verwendet wird sie erst, wenn Sie den Modus aktivieren, und danach sofort getrennt (währenddessen zeigt der Browser ein Debug-Banner).
 
-1. Seite mit Formular besuchen
-2. Symbol in der Toolbar klicken
-3. **🔄 Erfassen** klicken
-4. Formularfelder werden gescannt und gespeichert
+Felder, die danach noch fehlen, werden einige Sekunden lang erneut versucht – so werden auch spät gerenderte oder bedingt eingeblendete Formulare gefüllt.
 
-### Automatisches Ausfüllen
+## Feld-Kalibrierung
 
-**Methode A: Aktuelle Seite abgleichen**
-1. Zur gespeicherten Seite zurückkehren
-2. **⚡ Ausfüllen** klicken
-3. Passender Snapshot wird automatisch ausgefüllt
+Heuristiken decken die meisten Seiten ab; für den Rest gibt es die Kalibrierung. Öffnen Sie das 🎯-Panel eines Snapshots, wählen Sie ein Feld, klicken Sie auf **Verknüpfen** und dann auf das entsprechende Feld auf der Seite. Die Verknüpfung wird im Snapshot gespeichert und hat immer Vorrang – egal, was die Seite danach ändert.
 
-**Methode B: Bestimmten Snapshot ausfüllen**
-1. Gewünschten Eintrag in der Liste finden
-2. **Diese füllen** klicken
-3. Erzwungenes Ausfüllen mit diesem Snapshot
+## URL-Normalisierung
 
----
+Snapshots werden nach normalisierter URL gespeichert:
+- Query-Strings und Fragmente werden entfernt
+- Domain wird kleingeschrieben
+- Abschließende Schrägstriche werden normalisiert
+- Optional: Hash-Route für SPA-Apps beibehalten (Schalter in Einstellungen)
 
-## Datenschutz
+## Build
 
-- ✅ **Kein Daten-Upload** — `chrome.storage.local` Speicherung
-- ✅ **Manuell ausgelöst** — Kein automatisches Scannen
-- ✅ **Kein Tracking** — Keine Telemetrie, keine Remote-Aufrufe
-- ✅ **Minimale Berechtigungen** — Nur `storage` und `activeTab`
+```bash
+npm install
+npm run build
+```
 
----
+Output: `publish/webformkeeper-v{version}.zip`
 
-## Berechtigungen
+## Kostenlos vs. Premium
 
-| Berechtigung | Zweck |
-|--------------|-------|
-| `storage` | Lokale Speicherung von Snapshots und Einstellungen |
-| `activeTab` | Zugriff auf aktuellen Tab nur bei Button-Klick |
+| | Kostenlos | Premium |
+|---|:---:|:---:|
+| Snapshots | max. 5 | Unbegrenzt |
+| Füllungen pro Tag | 20 | Unbegrenzt |
+| Export / Import JSON | — | ✅ |
+| Priority Support | — | ✅ |
 
----
+## Lizenz
 
----
-
-## Hinweis zum Quellcode
-
-> ⚠️ **Dieses Repository veröffentlicht keinen Quellcode.** Es enthält nur Nutzerdokumentation, Versionshinweise und Support-Ressourcen. Die Erweiterung wird ausschließlich über den Chrome Web Store vertrieben. Es werden keine Offline-Installationspakete oder Quellcodes für Endbenutzer bereitgestellt.
-
-
-## ❤️ Unterstützung
-
-Wenn vkt-form Ihnen hilft, unterstützen Sie uns gerne!
-
-**[👉 vkt-form unterstützen](https://annmax1983.github.io/vkt-form/)**
+Kostenlose Version: 5 Snapshots, 20 Füllungen/Tag. Premium-Schlüssel schaltet unbegrenzte Nutzung, JSON-Export/-Import und Priority Support frei.
