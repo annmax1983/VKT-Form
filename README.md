@@ -1,4 +1,4 @@
-# vkt-form - Form Snapshot & Auto-Fill
+# VKT Form - Form Snapshot & Auto-Fill
 
 English | [中文](languages/README_zh.md) | [Español](languages/README_es.md) | [Deutsch](languages/README_de.md) | [日本語](languages/README_ja.md) | [Français](languages/README_fr.md)
 
@@ -12,8 +12,9 @@ A browser extension that saves web form snapshots and auto-fills them later. All
 - **Read-back verification** — Every field is verified after writing; failures are reported instead of silently ignored
 - **Field calibration** — Bind a field to an element on the page once and it fills forever after
 - **Fully local** — All data stored in `chrome.storage.local`, never uploaded
-- **Export/Import** — JSON backup and restore
-- **Free tier** — 5 snapshots, 20 fills/day; Premium removes all limits
+- **Export/Import** — JSON backup and restore (Premium)
+- **6 languages** — English, 中文, 日本語, Deutsch, Español, Français; auto-detected from the browser
+- **Free tier** — 5 snapshots, unlimited fills; Premium removes the snapshot cap and adds JSON backup & restore
 
 ## How It Works
 
@@ -66,17 +67,17 @@ npm install
 npm run build
 ```
 
-Output: `publish/webformkeeper-v{version}.zip`
+Output: `publish/vkt-form-v{version}.zip`
 
 ## Free vs Premium
 
 | | Free | Premium |
 |---|:---:|:---:|
 | Snapshots | 5 max | Unlimited |
-| Fills per day | 20 | Unlimited |
+| Fills | Unlimited | Unlimited |
 | Export / Import JSON | — | ✅ |
 | Priority support | — | ✅ |
 
 ## License
 
-Free version: 5 snapshots, 20 fills/day. Premium key unlocks unlimited usage, JSON export/import, and priority support.
+Free version: 5 snapshots with unlimited fills. Premium key unlocks unlimited snapshots, JSON export/import, and priority support.

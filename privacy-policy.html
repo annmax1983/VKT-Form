@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy - WebFormKeeper</title>
+<title>Privacy Policy - VKT Form</title>
 <style>
   body { max-width: 720px; margin: 40px auto; padding: 0 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.7; color: #333; }
   h1 { font-size: 24px; margin-bottom: 8px; }
@@ -21,10 +21,10 @@
 <p class="date">Effective date: August 2026</p>
 
 <h2>Overview</h2>
-<p>WebFormKeeper is a browser extension that saves and fills web form data. <strong>All data is stored locally in your browser using <code>chrome.storage.local</code>. No data is uploaded to any server.</strong></p>
+<p>VKT Form is a browser extension that saves and fills web form data. <strong>All data is stored locally in your browser using <code>chrome.storage.local</code>. No data is uploaded to any server.</strong></p>
 
 <h2>Data Collection</h2>
-<p>WebFormKeeper collects the following data <strong>only when you manually click the "Collect" button</strong>:</p>
+<p>VKT Form collects the following data <strong>only when you manually click the "Collect" button</strong>:</p>
 <ul>
   <li>Form field names, values, and types (text, radio, checkbox, select, textarea)</li>
   <li>The normalized URL of the page where forms are collected</li>
@@ -35,22 +35,26 @@
 <h2>Data Storage</h2>
 <table>
   <tr><th>Storage Key</th><th>Content</th></tr>
-  <tr><td><code>wfk_records</code></td><td>Form snapshots keyed by normalized URL</td></tr>
-  <tr><td><code>wfk_meta</code></td><td>Usage quotas, license status, daily fill counter</td></tr>
-  <tr><td><code>wfk_settings</code></td><td>User preferences (hash route toggle)</td></tr>
+  <tr><td><code>vkf_records</code></td><td>Form snapshots keyed by normalized URL</td></tr>
+  <tr><td><code>vkf_meta</code></td><td>Snapshot quota and license status</td></tr>
+  <tr><td><code>vkf_settings</code></td><td>User preferences (hash route toggle)</td></tr>
 </table>
 <p>All data remains in your browser's local storage and is never transmitted externally.</p>
 
 <h2>Password Fields</h2>
-<p>WebFormKeeper may capture and store values from password fields if they are present on the page when you click "Collect". These values are stored locally only. Please be aware of this when using the extension on pages containing sensitive credentials.</p>
+<p>VKT Form may capture and store values from password fields if they are present on the page when you click "Collect". These values are stored locally only. Please be aware of this when using the extension on pages containing sensitive credentials.</p>
 
 <h2>Permissions</h2>
 <table>
   <tr><th>Permission</th><th>Reason</th></tr>
   <tr><td><code>storage</code></td><td>Save form snapshots and settings locally</td></tr>
-  <tr><td><code>activeTab</code></td><td>Access the current tab only when you click a button (no persistent access to all sites)</td></tr>
+  <tr><td><code>activeTab</code></td><td>Access the current tab only when you click a button</td></tr>
+  <tr><td><code>sidePanel</code></td><td>Display the extension's side panel UI</td></tr>
+  <tr><td><code>scripting</code></td><td>Inject the collection/auto-fill script on demand, only when you click a button</td></tr>
+  <tr><td><code>debugger</code></td><td>Read and fill form fields reliably on framework-rendered pages (Vue/React). Used only on the tab you act on, only while the action runs</td></tr>
+  <tr><td>Host permissions (<code>&lt;all_urls&gt;</code>)</td><td>Let the tool work on whichever site you choose to collect or fill forms on. All processing stays local</td></tr>
 </table>
-<p>The extension uses <code>chrome.scripting.executeScript</code> to inject content scripts on demand — it does NOT declare <code>&lt;all_urls&gt;</code> or any host permissions.</p>
+<p>The extension uses <code>chrome.scripting</code> and the <code>chrome.debugger</code> API to interact with form fields on the page you are acting on. Form data is never transmitted anywhere — the only external request the extension makes is license-key validation (see below).</p>
 
 <h2>Third-Party Services</h2>
 <p>License key validation communicates with <code>api.annmax1983.com</code> to verify premium status. Only the license key, device hash, and plugin ID are sent. No form data or browsing history is transmitted.</p>

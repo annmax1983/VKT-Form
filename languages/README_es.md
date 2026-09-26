@@ -1,4 +1,4 @@
-# vkt-form — Captura y autocompletado de formularios
+# VKT Form — Captura y autocompletado de formularios
 
 [English](../README.md) | [中文](README_zh.md) | Español | [Deutsch](README_de.md) | [日本語](README_ja.md) | [Français](README_fr.md)
 
@@ -12,8 +12,8 @@ Una extensión para el navegador que guarda capturas de formularios web y los re
 - **Verificación posterior** — Cada campo se lee de vuelta tras escribirlo; los fallos se muestran en lugar de ignorarse
 - **Calibración de campos** — Vincula un campo a un elemento de la página una vez y se rellenará siempre
 - **Completamente local** — Todos los datos se almacenan en `chrome.storage.local`, nunca se suben
-- **Exportar/Importar** — Respaldo y restauración JSON
-- **Nivel gratuito** — 5 capturas, 20 rellenos/día; Premium elimina todos los límites
+- **Exportar/Importar** — Respaldo y restauración JSON (Premium)
+- **Nivel gratuito** — 5 capturas; Premium elimina todos los límites
 
 ## Cómo funciona
 
@@ -66,17 +66,17 @@ npm install
 npm run build
 ```
 
-Salida: `publish/webformkeeper-v{version}.zip`
+Salida: `publish/vkt-form-v{version}.zip`
 
 ## Gratis vs Premium
 
 | | Gratis | Premium |
 |---|:---:|:---:|
 | Capturas | 5 como máximo | Ilimitadas |
-| Rellenos por día | 20 | Ilimitados |
+| Rellenos | Ilimitados | Ilimitados |
 | Exportar / Importar JSON | — | ✅ |
 | Soporte prioritario | — | ✅ |
 
 ## Licencia
 
-Versión gratuita: 5 capturas, 20 rellenos/día. La clave Premium desbloquea el uso ilimitado, la exportación/importación JSON y el soporte prioritario.
+Versión gratuita: 5 capturas. La clave Premium desbloquea el uso ilimitado, la exportación/importación JSON y el soporte prioritario.
