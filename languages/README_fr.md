@@ -53,7 +53,7 @@ Les heuristiques couvrent la plupart des pages ; pour le reste, il y a la calibr
 
 ## Normalisation des URLs
 
-Les instantanés sont indexés par URL normalisée :
+La clé d'un instantané est le nom que vous lui donnez, et chacun enregistre l'URL normalisée de la page : c'est elle qui relie une page à ses instantanés, donc une même page peut en avoir plusieurs :
 - Paramètres de requête et fragments supprimés
 - Domaine en minuscules
 - Barres obliques finales normalisées

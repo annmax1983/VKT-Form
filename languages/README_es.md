@@ -53,7 +53,7 @@ Las heurísticas cubren la mayoría de las páginas; para el resto existe la cal
 
 ## Normalización de URL
 
-Las capturas se indexan por URL normalizada:
+La clave de cada captura es el nombre que le pongas, y cada una guarda la URL normalizada de la página: es esa URL la que vincula una página con sus capturas, así que una misma página puede tener varias:
 - Se eliminan cadenas de consulta y fragmentos
 - El dominio se convierte a minúsculas
 - Las barras finales se normalizan

@@ -53,7 +53,7 @@ Heuristiken decken die meisten Seiten ab; für den Rest gibt es die Kalibrierung
 
 ## URL-Normalisierung
 
-Snapshots werden nach normalisierter URL gespeichert:
+Gespeichert wird ein Snapshot unter dem Namen, den Sie vergeben; jeder Snapshot hält die normalisierte URL der Seite, und über sie wird eine Seite ihren Snapshots zugeordnet — dieselbe Seite kann also mehrere haben:
 - Query-Strings und Fragmente werden entfernt
 - Domain wird kleingeschrieben
 - Abschließende Schrägstriche werden normalisiert

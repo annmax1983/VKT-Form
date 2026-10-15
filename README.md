@@ -54,7 +54,7 @@ Heuristics cover most pages; for the rest there is calibration. Open a snapshot'
 
 ## URL Normalization
 
-Snapshots are indexed by normalized URL:
+Snapshots are keyed by the name you give them, and each one stores the page's normalized URL — that URL is what ties a page back to its snapshots, so a single page can hold more than one:
 - Query strings and fragments removed
 - Domain lowercased
 - Trailing slashes normalized
@@ -77,6 +77,14 @@ Output: `publish/vkt-form-v{version}.zip`
 | Fills | Unlimited | Unlimited |
 | Export / Import JSON | — | ✅ |
 | Priority support | — | ✅ |
+
+---
+
+## Source Code Notice
+
+> ⚠️ **This repository does not publish source code.** It contains only usage documentation, release notes, and support resources. The extension is distributed exclusively through the Chrome Web Store. No offline installation packages or end-user source code are provided.
+
+---
 
 ## License
 
