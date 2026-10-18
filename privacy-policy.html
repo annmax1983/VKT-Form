@@ -38,7 +38,7 @@
 <table>
   <tr><th>Storage Key</th><th>Content</th></tr>
   <tr><td><code>vkf_records</code></td><td>Your saved form snapshots, <strong>keyed by the snapshot name you choose</strong>. Each snapshot holds: its name, the normalized URL and raw URL of the page, creation and last-update timestamps, a field count, and the field entries (name, id, type, value, collection-time structural hints, DOM order index, hidden flag)</td></tr>
-  <tr><td><code>vkf_meta</code></td><td>License key and Premium status. Quota is derived from the number of snapshots in <code>vkf_records</code>, not stored separately</td></tr>
+  <tr><td><code>vkf_license_vktform</code></td><td>Your license key, its activation status and expiry, and a randomly generated install identifier used to count activation slots. Quota is derived from the number of snapshots in <code>vkf_records</code>, not stored separately</td></tr>
   <tr><td><code>vkf_settings</code></td><td>Your preferences — keep the URL hash when matching snapshots, and optionally type through the debugger API for framework-rendered forms</td></tr>
 </table>
 <p>All data remains in your browser's local storage and is never transmitted externally. There is no cloud component: snapshots are not synced between devices and are not uploaded anywhere. The export/import feature simply writes a JSON file to your own disk and reads one back — that file never leaves your machine unless you move it yourself.</p>
@@ -60,7 +60,7 @@
 <p>The extension uses <code>chrome.scripting</code> and the <code>chrome.debugger</code> API to interact with form fields on the page you are acting on. Form data is never transmitted anywhere — the only external request the extension makes is license-key validation (see below).</p>
 
 <h2>Third-Party Services</h2>
-<p>License key validation communicates with <code>api.annmax1983.com</code> to verify premium status. Only the license key, device hash, and plugin ID are sent. No form data or browsing history is transmitted.</p>
+<p>License key validation communicates with <code>api.annmax1983.com</code> to verify premium status. Only the license key, a randomly generated install identifier, and the plugin ID are sent. No form data or browsing history is transmitted. Our license server records the IP address of these requests solely for rate limiting and abuse prevention — never for profiling, advertising, or sharing with third parties.</p>
 
 <h2>Data Deletion</h2>
 <p>You delete snapshots from the extension's <strong>side panel</strong> — each snapshot row has a delete button, and it asks for confirmation first. (There is no popup UI and no "delete everything" button; snapshots are removed one at a time.)</p>
