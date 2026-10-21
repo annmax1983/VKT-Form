@@ -2,7 +2,7 @@
 
 [English](../README.md) | [中文](README_zh.md) | Español | [Deutsch](README_de.md) | [日本語](README_ja.md) | [Français](README_fr.md)
 
-Una extensión para el navegador que guarda capturas de formularios web y los rellena automáticamente después. Todos los datos se almacenan localmente, sin subida a la nube.
+Una extensión para el navegador que guarda capturas de formularios web y los rellena automáticamente después. Los datos permanecen en tu navegador de forma predeterminada; Premium puede sincronizar opcionalmente las capturas entre dispositivos mediante tu cuenta de Chrome/Edge.
 
 ## Funcionalidades
 
@@ -11,9 +11,10 @@ Una extensión para el navegador que guarda capturas de formularios web y los re
 - **Autocompletado consciente del framework** — Escribe mediante el setter nativo y el propio flujo de edición del navegador, así que los componentes controlados de Vue / React / Angular sí actualizan su estado
 - **Verificación posterior** — Cada campo se lee de vuelta tras escribirlo; los fallos se muestran en lugar de ignorarse
 - **Calibración de campos** — Vincula un campo a un elemento de la página una vez y se rellenará siempre
-- **Completamente local** — Todos los datos se almacenan en `chrome.storage.local`, nunca se suben
-- **Exportar/Importar** — Respaldo y restauración JSON (Premium)
-- **Nivel gratuito** — 5 capturas; Premium elimina todos los límites
+- **Local por defecto** — Las capturas viven en `chrome.storage.local`; nada se sube salvo que actives la sincronización Premium
+- **Capturas y rellenados ilimitados** — Sin límite en la versión gratuita
+- **Exportar/Importar** — Respaldo y restauración JSON, gratis para todos
+- **Sincronización entre dispositivos (Premium)** — Opcional mediante tu cuenta de Chrome/Edge; sin servidor de sincronización propio
 
 ## Cómo funciona
 
@@ -59,6 +60,17 @@ La clave de cada captura es el nombre que le pongas, y cada una guarda la URL no
 - Las barras finales se normalizan
 - Opcional: mantener la ruta hash para aplicaciones SPA (interruptor en Configuración)
 
+## Sincronización entre dispositivos (Premium)
+
+Las capturas Premium pueden sincronizarse entre dispositivos mediante tu cuenta de Chrome/Edge, usando el `chrome.storage.sync` integrado en el navegador. No hay ningún servidor de sincronización nuestro: los datos van al servicio de cuenta del fabricante del navegador, el mismo lugar donde se guardan los marcadores y la configuración.
+
+- Actívala en **Configuración → Sincronización entre dispositivos**. Necesitas haber iniciado sesión en Chrome o Edge.
+- Las capturas locales siguen siendo ilimitadas y editables con la sincronización desactivada.
+- El navegador fija la cuota (8 KB por elemento, ~100 KB en total), así que las capturas grandes se dividen en bloques. Una captura que no cabe se queda guardada localmente y el panel te lo indica.
+- Las eliminaciones también se sincronizan: una captura eliminada con la sincronización activa se borra de tus otros dispositivos.
+- Los valores sensibles se guardan en texto plano y se sincronizan como cualquier otro campo.
+- Desactivar la sincronización detiene los futuros intercambios, pero no borra las copias que ya estén en tu cuenta del navegador.
+
 ## Compilación
 
 ```bash
@@ -72,11 +84,12 @@ Salida: `publish/vkt-form-v{version}.zip`
 
 | | Gratis | Premium |
 |---|:---:|:---:|
-| Capturas | 5 como máximo | Ilimitadas |
+| Capturas | Ilimitadas | Ilimitadas |
 | Rellenos | Ilimitados | Ilimitados |
-| Exportar / Importar JSON | — | ✅ |
+| Exportar / Importar JSON | ✅ | ✅ |
+| Sincronización entre dispositivos mediante cuenta de Chrome/Edge | — | ✅ |
 | Soporte prioritario | — | ✅ |
 
 ## Licencia
 
-Versión gratuita: 5 capturas. La clave Premium desbloquea el uso ilimitado, la exportación/importación JSON y el soporte prioritario.
+Versión gratuita: capturas locales, rellenos, calibración y exportación/importación JSON ilimitados. Premium desbloquea la sincronización entre dispositivos mediante tu cuenta del navegador y el soporte prioritario.
