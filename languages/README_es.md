@@ -71,14 +71,15 @@ Las capturas Premium pueden sincronizarse entre dispositivos mediante tu cuenta 
 - Los valores sensibles se guardan en texto plano y se sincronizan como cualquier otro campo.
 - Desactivar la sincronización detiene los futuros intercambios, pero no borra las copias que ya estén en tu cuenta del navegador.
 
-## Compilación
+## Instalación
 
-```bash
-npm install
-npm run build
-```
+| Tienda | Enlace |
+|---|---|
+| Chrome Web Store | [Instalar en Chrome](https://chromewebstore.google.com/detail/blghafafgccoglgpfmjmjnmlgdnmdonj) |
+| Complementos de Microsoft Edge | [Instalar en Edge](https://microsoftedge.microsoft.com/addons/detail/aejbpfaihkopjcpddgodddpoffpfoifd) |
 
-Salida: `publish/vkt-form-v{version}.zip`
+> Instale solo desde las tiendas oficiales de arriba; evite sitios de descarga de terceros.
+
 
 ## Gratis vs Premium
 

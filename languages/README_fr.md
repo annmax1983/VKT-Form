@@ -4,6 +4,16 @@
 
 Une extension de navigateur qui sauvegarde des instantanés de formulaires web et les remplit automatiquement plus tard. Les données restent dans votre navigateur par défaut ; Premium peut synchroniser en option les instantanés entre vos appareils via votre compte Chrome/Edge.
 
+## Installation
+
+| Store | Lien |
+|---|---|
+| Chrome Web Store | [Installer dans Chrome](https://chromewebstore.google.com/detail/blghafafgccoglgpfmjmjnmlgdnmdonj) |
+| Microsoft Edge Add-ons | [Installer dans Edge](https://microsoftedge.microsoft.com/addons/detail/aejbpfaihkopjcpddgodddpoffpfoifd) |
+
+> Installez uniquement depuis les boutiques officielles ci-dessus — évitez les sites de téléchargement tiers.
+
+
 ## Fonctionnalités
 
 - **Collecte de formulaire en un clic** — Scannez et sauvegardez tous les champs de formulaire de n'importe quelle page
@@ -70,15 +80,6 @@ Les instantanés Premium peuvent être synchronisés entre vos appareils via vot
 - Les suppressions sont synchronisées : un instantané supprimé avec la synchronisation active est aussi retiré de vos autres appareils.
 - Les valeurs sensibles sont stockées en clair et synchronisées comme n'importe quel autre champ.
 - Désactiver la synchronisation arrête les échanges futurs mais n'efface pas les copies déjà présentes dans votre compte de navigateur.
-
-## Build
-
-```bash
-npm install
-npm run build
-```
-
-Résultat : `publish/vkt-form-v{version}.zip`
 
 ## Gratuit vs Premium
 

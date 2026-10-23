@@ -4,6 +4,16 @@
 
 Eine Browser-Erweiterung, die Web-Formular-Snapshots speichert und sie später automatisch ausfüllt. Daten bleiben standardmäßig lokal; Premium kann Snapshots optional über Ihr Chrome-/Edge-Konto zwischen Geräten synchronisieren.
 
+## Installation
+
+| Store | Link |
+|---|---|
+| Chrome Web Store | [In Chrome installieren](https://chromewebstore.google.com/detail/blghafafgccoglgpfmjmjnmlgdnmdonj) |
+| Microsoft Edge Add-ons | [In Edge installieren](https://microsoftedge.microsoft.com/addons/detail/aejbpfaihkopjcpddgodddpoffpfoifd) |
+
+> Installieren Sie nur über die offiziellen Stores oben – meiden Sie Download-Seiten Dritter.
+
+
 ## Funktionen
 
 - **Ein-Klick-Formular-Erfassung** — Scannt und speichert alle Formularfelder auf jeder beliebigen Seite
@@ -70,15 +80,6 @@ Premium-Snapshots können über Ihr Chrome-/Edge-Konto zwischen Geräten synchro
 - Löschungen werden ebenfalls synchronisiert: Ein bei aktiver Synchronisierung gelöschter Snapshot wird auch auf Ihren anderen Geräten entfernt.
 - Sensible Werte werden im Klartext gespeichert und beim Synchronisieren wie jedes andere Feld übertragen.
 - Das Ausschalten der Synchronisierung stoppt weitere Abgleiche, löscht aber keine Kopien, die bereits im Browserkonto liegen.
-
-## Build
-
-```bash
-npm install
-npm run build
-```
-
-Output: `publish/vkt-form-v{version}.zip`
 
 ## Kostenlos vs. Premium
 

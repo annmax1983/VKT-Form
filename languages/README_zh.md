@@ -55,16 +55,14 @@
 
 ---
 
-## 安装方式
+## 安装
 
-### 开发者模式加载
+| 商店 | 链接 |
+|---|---|
+| Chrome 应用商店 | [在 Chrome 中安装](https://chromewebstore.google.com/detail/blghafafgccoglgpfmjmjnmlgdnmdonj) |
+| Microsoft Edge 加载项 | [在 Edge 中安装](https://microsoftedge.microsoft.com/addons/detail/aejbpfaihkopjcpddgodddpoffpfoifd) |
 
-1. 打开浏览器扩展页面：
-   - **Chrome**：`chrome://extensions/`
-   - **Edge**：`edge://extensions/`
-2. 打开右上角 **开发者模式**
-3. 点击 **加载已解压的扩展程序**，选择 `vkt-form` 文件夹
-4. 工具栏出现 vkt-form 图标，点击图标打开侧边栏
+> 请只通过上方官方商店安装，避免使用第三方下载站。
 
 ---
 

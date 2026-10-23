@@ -13,6 +13,16 @@ A local-first browser extension that saves web form snapshots and auto-fills the
 - **Local-first and unlimited** — no snapshot or fill cap; JSON export/import is free for everyone.
 - **Optional sync** — Premium can keep devices in step through your Chrome/Edge account, with no sync server of ours.
 
+## Installation
+
+| Store | Link |
+|---|---|
+| Chrome Web Store | [Install for Chrome](https://chromewebstore.google.com/detail/blghafafgccoglgpfmjmjnmlgdnmdonj) |
+| Microsoft Edge Add-ons | [Install for Edge](https://microsoftedge.microsoft.com/addons/detail/aejbpfaihkopjcpddgodddpoffpfoifd) |
+
+> Install only from the official stores above — avoid third-party download sites.
+
+
 ## Features
 
 - **One-click form collection** — Scan and save all form fields on any page
@@ -82,15 +92,6 @@ Premium snapshots can sync between devices through your Chrome/Edge account, usi
 - Deletions sync too: a snapshot deleted while sync is on is removed from your other devices.
 - Sensitive values are stored in plain text and are included in sync like any other field.
 - Turning sync off stops further syncing but does not erase copies already in your browser account.
-
-## Build
-
-```bash
-npm install
-npm run build
-```
-
-Output: `publish/vkt-form-v{version}.zip`
 
 ## Free vs Premium
 

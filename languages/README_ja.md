@@ -4,6 +4,16 @@
 
 Webフォームのスナップショットを保存し、後から自動入力できるブラウザ拡張機能です。データは既定でブラウザ内に保存されます。Premium では Chrome/Edge アカウント経由でデバイス間のスナップショット同期を任意で有効にできます。
 
+## インストール
+
+| ストア | リンク |
+|---|---|
+| Chrome ウェブストア | [Chrome に追加](https://chromewebstore.google.com/detail/blghafafgccoglgpfmjmjnmlgdnmdonj) |
+| Microsoft Edge アドオン | [Edge に追加](https://microsoftedge.microsoft.com/addons/detail/aejbpfaihkopjcpddgodddpoffpfoifd) |
+
+> 上記の公式ストアからのみインストールしてください。第三者サイトの利用は避けてください。
+
+
 ## 機能一覧
 
 - **ワンクリックフォーム収集** — 任意のページ上のすべてのフォームフィールドをスキャンして保存
@@ -70,15 +80,6 @@ Premium のスナップショットは、ブラウザ内蔵の `chrome.storage.s
 - 削除も同期されます：同期が有効なときに削除したスナップショットは、他のデバイスからも削除されます。
 - 機密性の高い値も平文で保存され、他のフィールドと同様に同期されます。
 - 同期をオフにすると以降の同期は停止しますが、ブラウザアカウントに既にあるコピーは削除されません。
-
-## ビルド
-
-```bash
-npm install
-npm run build
-```
-
-出力：`publish/vkt-form-v{version}.zip`
 
 ## 無料版 vs Premium
 
