@@ -2,7 +2,7 @@
 
 [English](../README.md) | [中文](README_zh.md) | Español | [Deutsch](README_de.md) | [日本語](README_ja.md) | [Français](README_fr.md)
 
-Una extensión para el navegador que guarda capturas de formularios web y los rellena automáticamente después. Los datos permanecen en tu navegador de forma predeterminada; Premium puede sincronizar opcionalmente las capturas entre dispositivos mediante tu cuenta de Chrome/Edge.
+Una extensión para el navegador que guarda capturas de formularios web y los rellena automáticamente después. Los datos permanecen en tu navegador de forma predeterminada; Premium puede sincronizar opcionalmente las capturas entre dispositivos mediante tu cuenta de Chrome/Edge/Firefox.
 
 ## Funcionalidades
 
@@ -11,10 +11,10 @@ Una extensión para el navegador que guarda capturas de formularios web y los re
 - **Autocompletado consciente del framework** — Escribe mediante el setter nativo y el propio flujo de edición del navegador, así que los componentes controlados de Vue / React / Angular sí actualizan su estado
 - **Verificación posterior** — Cada campo se lee de vuelta tras escribirlo; los fallos se muestran en lugar de ignorarse
 - **Calibración de campos** — Vincula un campo a un elemento de la página una vez y se rellenará siempre
-- **Local por defecto** — Las capturas viven en `chrome.storage.local`; nada se sube salvo que actives la sincronización Premium
+- **Local por defecto** — Las capturas viven en `storage.local`; nada se sube salvo que actives la sincronización Premium
 - **Capturas y rellenados ilimitados** — Sin límite en la versión gratuita
 - **Exportar/Importar** — Respaldo y restauración JSON, gratis para todos
-- **Sincronización entre dispositivos (Premium)** — Opcional mediante tu cuenta de Chrome/Edge; sin servidor de sincronización propio
+- **Sincronización entre dispositivos (Premium)** — Opcional mediante tu cuenta de Chrome/Edge/Firefox; sin servidor de sincronización propio
 
 ## Cómo funciona
 
@@ -62,14 +62,27 @@ La clave de cada captura es el nombre que le pongas, y cada una guarda la URL no
 
 ## Sincronización entre dispositivos (Premium)
 
-Las capturas Premium pueden sincronizarse entre dispositivos mediante tu cuenta de Chrome/Edge, usando el `chrome.storage.sync` integrado en el navegador. No hay ningún servidor de sincronización nuestro: los datos van al servicio de cuenta del fabricante del navegador, el mismo lugar donde se guardan los marcadores y la configuración.
+Las capturas Premium pueden sincronizarse entre dispositivos mediante tu cuenta de Chrome/Edge/Firefox, usando el `storage.sync` integrado en el navegador. No hay ningún servidor de sincronización nuestro: los datos van al servicio de cuenta del fabricante del navegador, el mismo lugar donde se guardan los marcadores y la configuración.
 
-- Actívala en **Configuración → Sincronización entre dispositivos**. Necesitas haber iniciado sesión en Chrome o Edge.
+- Actívala en **Configuración → Sincronización entre dispositivos**. Necesitas haber iniciado sesión en Chrome, Edge o Firefox.
 - Las capturas locales siguen siendo ilimitadas y editables con la sincronización desactivada.
 - El navegador fija la cuota (8 KB por elemento, ~100 KB en total), así que las capturas grandes se dividen en bloques. Una captura que no cabe se queda guardada localmente y el panel te lo indica.
 - Las eliminaciones también se sincronizan: una captura eliminada con la sincronización activa se borra de tus otros dispositivos.
 - Los valores sensibles se guardan en texto plano y se sincronizan como cualquier otro campo.
 - Desactivar la sincronización detiene los futuros intercambios, pero no borra las copias que ya estén en tu cuenta del navegador.
+
+## Navegadores compatibles
+
+| Navegador | Estado |
+|---------|--------|
+| Google Chrome | ✅ Totalmente compatible |
+| Microsoft Edge | ✅ Totalmente compatible |
+| Mozilla Firefox | ✅ Totalmente compatible |
+| Otros navegadores basados en Chromium | ✅ Debería funcionar |
+
+> **Nota sobre Firefox:** La interfaz se abre en la barra lateral de Firefox (Ver → Barra lateral → VKT Form), por lo que la versión de Firefox no solicita el permiso `sidePanel`. Firefox no ofrece API de depurador para extensiones, por lo que no hay modo depurador. El resto de funciones se comporta igual que en Chrome / Edge.
+
+---
 
 ## Instalación
 
@@ -77,9 +90,9 @@ Las capturas Premium pueden sincronizarse entre dispositivos mediante tu cuenta 
 |---|---|
 | Chrome Web Store | [Instalar en Chrome](https://chromewebstore.google.com/detail/blghafafgccoglgpfmjmjnmlgdnmdonj) |
 | Complementos de Microsoft Edge | [Instalar en Edge](https://microsoftedge.microsoft.com/addons/detail/aejbpfaihkopjcpddgodddpoffpfoifd) |
+| Complementos de Firefox (AMO) | 🔜 En revisión: el enlace se añadirá al publicarse |
 
 > Instale solo desde las tiendas oficiales de arriba; evite sitios de descarga de terceros.
-
 
 ## Gratis vs Premium
 
@@ -88,7 +101,7 @@ Las capturas Premium pueden sincronizarse entre dispositivos mediante tu cuenta 
 | Capturas | Ilimitadas | Ilimitadas |
 | Rellenos | Ilimitados | Ilimitados |
 | Exportar / Importar JSON | ✅ | ✅ |
-| Sincronización entre dispositivos mediante cuenta de Chrome/Edge | — | ✅ |
+| Sincronización entre dispositivos mediante cuenta de Chrome/Edge/Firefox | — | ✅ |
 | Soporte prioritario | — | ✅ |
 
 ## Licencia

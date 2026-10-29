@@ -2,7 +2,7 @@
 
 English | [中文](languages/README_zh.md) | [Español](languages/README_es.md) | [Deutsch](languages/README_de.md) | [日本語](languages/README_ja.md) | [Français](languages/README_fr.md)
 
-A local-first browser extension that saves web form snapshots and auto-fills them later. Data stays in your browser; Premium can optionally sync snapshots between your devices through your Chrome/Edge account.
+A local-first browser extension that saves web form snapshots and auto-fills them later. Data stays in your browser; Premium can optionally sync snapshots between your devices through your browser account (Chrome, Edge or Firefox Sync). Runs on Chrome, Edge and Firefox.
 
 ## Highlights
 
@@ -11,7 +11,7 @@ A local-first browser extension that saves web form snapshots and auto-fills the
 - **Tells the truth** — every write is read back and verified; unmatched fields are reported, never filled into the wrong box.
 - **Handles the long tail** — one-time field calibration for pages that heuristics cannot solve.
 - **Local-first and unlimited** — no snapshot or fill cap; JSON export/import is free for everyone.
-- **Optional sync** — Premium can keep devices in step through your Chrome/Edge account, with no sync server of ours.
+- **Optional sync** — Premium can keep devices in step through your browser account (Chrome / Edge / Firefox Sync), with no sync server of ours.
 
 ## Installation
 
@@ -19,8 +19,22 @@ A local-first browser extension that saves web form snapshots and auto-fills the
 |---|---|
 | Chrome Web Store | [Install for Chrome](https://chromewebstore.google.com/detail/blghafafgccoglgpfmjmjnmlgdnmdonj) |
 | Microsoft Edge Add-ons | [Install for Edge](https://microsoftedge.microsoft.com/addons/detail/aejbpfaihkopjcpddgodddpoffpfoifd) |
+| Firefox Add-ons (AMO) | 🔜 Under review — link will be added once the listing is live |
 
 > Install only from the official stores above — avoid third-party download sites.
+
+## Supported Browsers
+
+| Browser | Status | Notes |
+|---------|--------|-------|
+| Google Chrome | ✅ Fully supported | Side panel UI, Manifest V3 |
+| Microsoft Edge | ✅ Fully supported | Side panel UI, Manifest V3 |
+| Mozilla Firefox | ✅ Fully supported | Firefox sidebar UI, Manifest V3, Firefox 140+ (desktop) |
+
+> **Firefox differences:**
+> - The panel opens in Firefox's **Sidebar** (View → Sidebar → VKT Form) instead of Chromium's side panel.
+> - Firefox has no debugger API for extensions, so **debugger mode** is not offered there; the other four filling strategies — native setter + events, commit triggers, the real editing pipeline and component adapters — work exactly as on Chrome and Edge.
+> - Firefox asks for `storage`, `activeTab`, `scripting` and `<all_urls>`. The `sidePanel` and `debugger` permissions are Chrome / Edge only.
 
 
 ## Features
@@ -30,19 +44,19 @@ A local-first browser extension that saves web form snapshots and auto-fills the
 - **Deep field detection** — Shadow DOM, iframes and rich-text editors included; the inactive steps of a multi-step form are captured too
 - **Read-back verification** — Every field is verified after writing; failures are reported instead of silently ignored
 - **Field calibration** — Bind a field to an element on the page once and it fills forever after
-- **Local-first** — Snapshots live in `chrome.storage.local`; nothing is uploaded unless you turn on Premium cross-device sync
+- **Local-first** — Snapshots live in the extension's local storage (`storage.local`); nothing is uploaded unless you turn on Premium cross-device sync
 - **Unlimited snapshots and fills** — No free-tier cap
 - **Export/Import** — JSON backup and restore, free for everyone
-- **Cross-device sync (Premium)** — Optional sync through your Chrome/Edge account; no sync server of ours
+- **Cross-device sync (Premium)** — Optional sync through your browser account (Chrome / Edge / Firefox Sync); no sync server of ours
 - **6 languages** — English, 中文, 日本語, Deutsch, Español, Français; auto-detected from the browser
 
 ## Usage
 
-1. **Collect** — open the side panel on a page with a form and click **Collect**.
+1. **Collect** — open the panel on a page with a form (Chrome / Edge: side panel from the toolbar icon; Firefox: sidebar via **View → Sidebar → VKT Form**) and click **Collect**.
 2. **Fill** — click **Fill** to match the current page, or **Fill this** on a saved snapshot.
 3. **Calibrate if needed** — open the snapshot's 🎯 panel, click **Bind**, then click the field on the page. The binding is saved with the snapshot and always takes priority.
 4. **Back up** — use the export/import icons to save or restore all snapshots as JSON.
-5. **Sync (Premium)** — open **Settings → Cross-device sync**, sign in to Chrome or Edge, and turn it on. Use **Sync now** for an immediate refresh.
+5. **Sync (Premium)** — open **Settings → Cross-device sync**, sign in to your browser account (Chrome, Edge or Firefox), and turn it on. Use **Sync now** for an immediate refresh.
 
 ## Field Matching
 
@@ -66,7 +80,7 @@ Each field is written with escalating strategies, and the value is read back aft
 2. **Commit triggers** — `blur` / `focusout` for widgets that only save on blur.
 3. **Real editing pipeline** — `document.execCommand('insertText')` after focusing and selecting, which produces events indistinguishable from typing. Also how rich-text editors are filled.
 4. **Component adapter** — for div-based selects (Element Plus, Ant Design, Arco, Naive UI, Vant, …) it opens the dropdown like a user would and clicks the option carrying the stored value.
-5. **Debugger mode** — off by default; it drives the browser's debugger to emit trusted input events for components that reject everything else. Chrome does not allow this permission to be requested at runtime, so it is granted at install — but it is not used until you turn the mode on, and it disconnects as soon as the fill finishes (the browser shows a debugging banner while it is attached).
+5. **Debugger mode** — Chrome / Edge only, off by default; it drives the browser's debugger to emit trusted input events for components that reject everything else. Chrome does not allow this permission to be requested at runtime, so it is granted at install — but it is not used until you turn the mode on, and it disconnects as soon as the fill finishes (the browser shows a debugging banner while it is attached). Firefox has no extension debugger API, so that strategy is not offered in the Firefox build.
 
 Fields that are still missing after the first pass are retried for a few seconds, so forms that render late or appear conditionally get filled too.
 
@@ -84,9 +98,9 @@ Snapshots are keyed by the name you give them, and each one stores the page's no
 
 ## Cross-device Sync (Premium)
 
-Premium snapshots can sync between devices through your Chrome/Edge account, using the browser's built-in `chrome.storage.sync`. There is no sync server of ours: the data goes to your browser vendor's account sync, the same place bookmarks and settings go.
+Premium snapshots can sync between devices through your browser account, using the browser's built-in sync storage (`storage.sync`). There is no sync server of ours: the data goes to your browser vendor's account sync (Chrome Sync, Edge Sync or Firefox Sync), the same place bookmarks and settings go.
 
-- Turn it on in **Settings → Cross-device sync**. You need to be signed in to Chrome or Edge.
+- Turn it on in **Settings → Cross-device sync**. You need to be signed in to your browser account (Chrome, Edge or Firefox).
 - Local snapshots stay unlimited and editable with sync off.
 - The browser sets the quota (8 KB per item, ~100 KB total), so large snapshots are split into chunks. A snapshot that does not fit stays saved locally and the panel tells you.
 - Deletions sync too: a snapshot deleted while sync is on is removed from your other devices.
@@ -100,14 +114,14 @@ Premium snapshots can sync between devices through your Chrome/Edge account, usi
 | Snapshots | Unlimited | Unlimited |
 | Fills | Unlimited | Unlimited |
 | Export / Import JSON | ✅ | ✅ |
-| Cross-device sync via Chrome/Edge account | — | ✅ |
+| Cross-device sync via your browser account (Chrome / Edge / Firefox) | — | ✅ |
 | Priority support | — | ✅ |
 
 ---
 
 ## Source Code Notice
 
-> ⚠️ **This repository does not publish source code.** It contains only usage documentation, release notes, and support resources. The extension is distributed exclusively through the Chrome Web Store. No offline installation packages or end-user source code are provided.
+> ⚠️ **This repository does not publish source code.** It contains only usage documentation, release notes, and support resources. The extension is distributed exclusively through the Chrome Web Store, Microsoft Edge Add-ons and Firefox Add-ons (AMO). No offline installation packages or end-user source code are provided.
 
 ---
 

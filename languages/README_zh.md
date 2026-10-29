@@ -1,9 +1,9 @@
 # vkt-form
 [English](../README.md) | 中文 | [Español](README_es.md) | [Deutsch](README_de.md) | [日本語](README_ja.md) | [Français](README_fr.md)
 
-浏览器表单快照记忆填充插件 — 一键保存表单，一键回填。数据默认保存在浏览器本地；高级版可选通过 Chrome/Edge 账号在设备之间同步快照。
+浏览器表单快照记忆填充插件 — 一键保存表单，一键回填。数据默认保存在浏览器本地；高级版可选通过 Chrome / Edge / Firefox 账号在设备之间同步快照。
 
-> 基于 Chromium · Manifest V3 · 无追踪 · 用户手动触发采集
+> Chrome / Edge / Firefox · Manifest V3 · 无追踪 · 用户手动触发采集
 
 ---
 
@@ -34,7 +34,7 @@
 | 🔄 **框架兼容** | 通过 `HTMLInputElement.prototype` 的原生 setter 写入，React 的变更追踪才会真正触发；受控组件、只读下拉都能处理。 |
 | ⏱️ **延迟补填** | SPA 路由切换后才渲染的表单、点了某选项才出现的条件字段，会在填充后几秒内持续重试。 |
 | 🎯 **字段校准** | 在快照的 🎯 面板里选字段→点「绑定」→在页面上点那个输入框，绑定关系存进快照并优先于所有算法。 |
-| ☁️ **跨设备同步（高级版）** | 通过 Chrome/Edge 账号自带的同步服务同步快照，无需自建同步服务器。 |
+| ☁️ **跨设备同步（高级版）** | 通过 Chrome / Edge / Firefox 账号自带的同步服务同步快照，无需自建同步服务器。 |
 | 🔑 **License 解锁** | 在设置页面输入密钥激活高级版，解锁跨设备同步和优先支持。 |
 | 📥📤 **导入导出** | JSON 格式备份和恢复，免费版同样可用。 |
 | 🌐 **URL 归一化** | 去除查询参数、锚点，域名小写，可选保留 hash 路由（SPA 模式）。 |
@@ -48,10 +48,13 @@
 |--------|------|
 | Google Chrome | ✅ 完全支持 |
 | Microsoft Edge | ✅ 完全支持 |
+| Mozilla Firefox | ✅ 完全支持 |
 | Brave | ✅ 支持 |
 | Opera | ✅ 支持 |
 | Vivaldi | ✅ 支持 |
 | 任何 Chromium 内核浏览器 | ✅ 支持（Manifest V3） |
+
+> **Firefox 说明：** 界面在 Firefox 侧边栏中打开（查看 → 侧栏 → VKT Form），因此 Firefox 版不申请 `sidePanel` 权限。Firefox 不提供扩展调试器 API，因此不提供调试器模式。其余功能与 Chrome / Edge 一致。
 
 ---
 
@@ -61,6 +64,7 @@
 |---|---|
 | Chrome 应用商店 | [在 Chrome 中安装](https://chromewebstore.google.com/detail/blghafafgccoglgpfmjmjnmlgdnmdonj) |
 | Microsoft Edge 加载项 | [在 Edge 中安装](https://microsoftedge.microsoft.com/addons/detail/aejbpfaihkopjcpddgodddpoffpfoifd) |
+| Firefox 附加组件（AMO） | 🔜 审核中，上架后补充链接 |
 
 > 请只通过上方官方商店安装，避免使用第三方下载站。
 
@@ -111,8 +115,8 @@
 
 vkt-form 以隐私为核心设计原则：
 
-- ✅ **本地优先** — 默认所有数据存储在 `chrome.storage.local`，不上传
-- ☁️ **同步是可选的** — 只有高级版用户在设置里主动开启跨设备同步后，快照才会通过 Chrome/Edge 账号的 `chrome.storage.sync` 同步；数据进入浏览器厂商的账号同步服务，不经过我们的服务器
+- ✅ **本地优先** — 默认所有数据存储在 `storage.local`，不上传
+- ☁️ **同步是可选的** — 只有高级版用户在设置里主动开启跨设备同步后，快照才会通过 Chrome / Edge / Firefox 账号的 `storage.sync` 同步；数据进入浏览器厂商的账号同步服务，不经过我们的服务器
 - ✅ **用户手动触发** — 不自动采集，必须点击按钮才扫描
 - ✅ **无分析追踪** — 无遥测、无统计上报；对外请求只有 License 密钥校验，以及开启同步后的浏览器账号同步
 - ✅ **按需注入** — 不注册常驻内容脚本，仅在用户点击时向当前页面注入
@@ -126,9 +130,9 @@ vkt-form 以隐私为核心设计原则：
 |------|------|
 | `storage` | 本地保存表单快照和设置；开启高级版同步后，也用于浏览器的同步存储 |
 | `activeTab` | 仅在用户点击按钮时访问当前标签页 |
-| `sidePanel` | 显示侧边栏操作界面 |
+| `sidePanel` | 显示侧边栏操作界面 （仅 Chrome / Edge） |
 | `scripting` | 按需向当前页面（含其中的 iframe）注入采集/填充脚本 |
-| `debugger` | 用于兼容极端顽固组件的「调试器模式」。Chrome 不允许调试权限运行时申请，因此安装时即授予；但只有你在设置里主动开启后才会真正调用，填充结束立刻断开（填充期间浏览器会显示调试提示条） |
+| `debugger` | 用于兼容极端顽固组件的「调试器模式」。Chrome 不允许调试权限运行时申请，因此安装时即授予；但只有你在设置里主动开启后才会真正调用，填充结束立刻断开（填充期间浏览器会显示调试提示条） （仅 Chrome / Edge） |
 
 ---
 
@@ -139,16 +143,16 @@ vkt-form 以隐私为核心设计原则：
 | 快照数量 | 无限 | 无限 |
 | 填充次数 | 无限 | 无限 |
 | 导出 / 导入 JSON | ✅ | ✅ |
-| 跨设备同步（Chrome/Edge 账号） | — | ✅ |
+| 跨设备同步（Chrome / Edge / Firefox 账号） | — | ✅ |
 | 优先支持 | — | ✅ |
 
 ---
 
 ## 跨设备同步（高级版）
 
-高级版快照可以通过 Chrome/Edge 账号在设备之间同步，底层使用浏览器自带的 `chrome.storage.sync`。我们没有同步服务器：数据进入浏览器厂商的账号同步服务，和书签、设置的存放位置相同。
+高级版快照可以通过 Chrome / Edge / Firefox 账号在设备之间同步，底层使用浏览器自带的 `storage.sync`。我们没有同步服务器：数据进入浏览器厂商的账号同步服务，和书签、设置的存放位置相同。
 
-- 在 **设置 → 跨设备同步** 中开启，需要浏览器已登录 Chrome/Edge 账号。
+- 在 **设置 → 跨设备同步** 中开启，需要浏览器已登录 Chrome / Edge / Firefox 账号。
 - 关闭同步时，本地快照仍可无限保存和编辑。
 - 配额由浏览器决定（单项 8 KB，总量约 100 KB），较大的快照会被拆分为多块。放不下的快照仍会保存在本地，面板会提示。
 - 删除也会同步：开启同步时删除的快照会从其他设备上移除。

@@ -2,7 +2,20 @@
 
 [English](../README.md) | [中文](README_zh.md) | [Español](README_es.md) | [Deutsch](README_de.md) | [日本語](README_ja.md) | Français
 
-Une extension de navigateur qui sauvegarde des instantanés de formulaires web et les remplit automatiquement plus tard. Les données restent dans votre navigateur par défaut ; Premium peut synchroniser en option les instantanés entre vos appareils via votre compte Chrome/Edge.
+Une extension de navigateur qui sauvegarde des instantanés de formulaires web et les remplit automatiquement plus tard. Les données restent dans votre navigateur par défaut ; Premium peut synchroniser en option les instantanés entre vos appareils via votre compte Chrome/Edge/Firefox.
+
+## Navigateurs pris en charge
+
+| Navigateur | Statut |
+|---------|--------|
+| Google Chrome | ✅ Entièrement pris en charge |
+| Microsoft Edge | ✅ Entièrement pris en charge |
+| Mozilla Firefox | ✅ Entièrement pris en charge |
+| Autres navigateurs basés sur Chromium | ✅ Devrait fonctionner |
+
+> **Note Firefox :** L’interface s’ouvre dans la barre latérale de Firefox (Affichage → Barre latérale → VKT Form), la version Firefox ne demande donc pas la permission `sidePanel`. Firefox n’offre pas d’API de débogueur pour les extensions : le mode débogueur n’est donc pas proposé. Le reste des fonctions se comporte comme sous Chrome / Edge.
+
+---
 
 ## Installation
 
@@ -10,9 +23,9 @@ Une extension de navigateur qui sauvegarde des instantanés de formulaires web e
 |---|---|
 | Chrome Web Store | [Installer dans Chrome](https://chromewebstore.google.com/detail/blghafafgccoglgpfmjmjnmlgdnmdonj) |
 | Microsoft Edge Add-ons | [Installer dans Edge](https://microsoftedge.microsoft.com/addons/detail/aejbpfaihkopjcpddgodddpoffpfoifd) |
+| Modules complémentaires Firefox (AMO) | 🔜 En cours d’examen — le lien sera ajouté après publication |
 
 > Installez uniquement depuis les boutiques officielles ci-dessus — évitez les sites de téléchargement tiers.
-
 
 ## Fonctionnalités
 
@@ -21,10 +34,10 @@ Une extension de navigateur qui sauvegarde des instantanés de formulaires web e
 - **Auto-remplissage conscient du framework** — Écrit via le setter natif et le véritable pipeline d'édition du navigateur, donc les composants contrôlés de Vue / React / Angular mettent réellement à jour leur état
 - **Vérification après écriture** — Chaque champ est relu après écriture ; les échecs sont signalés au lieu d'être ignorés
 - **Calibration des champs** — Associez un champ à un élément de la page une fois, il sera toujours rempli ensuite
-- **Local par défaut** — Les instantanés résident dans `chrome.storage.local` ; rien n'est envoyé tant que vous n'activez pas la synchronisation Premium
+- **Local par défaut** — Les instantanés résident dans `storage.local` ; rien n'est envoyé tant que vous n'activez pas la synchronisation Premium
 - **Instantanés et remplissages illimités** — Aucune limite dans la version gratuite
 - **Export/Import** — Sauvegarde et restauration JSON, gratuites pour tous
-- **Synchronisation entre appareils (Premium)** — En option via votre compte Chrome/Edge ; aucun serveur de synchronisation de notre côté
+- **Synchronisation entre appareils (Premium)** — En option via votre compte Chrome/Edge/Firefox ; aucun serveur de synchronisation de notre côté
 
 ## Fonctionnement
 
@@ -72,9 +85,9 @@ La clé d'un instantané est le nom que vous lui donnez, et chacun enregistre l'
 
 ## Synchronisation entre appareils (Premium)
 
-Les instantanés Premium peuvent être synchronisés entre vos appareils via votre compte Chrome/Edge, grâce au `chrome.storage.sync` intégré au navigateur. Nous n'avons aucun serveur de synchronisation : les données vont au service de compte de l'éditeur du navigateur, là où sont également stockés les favoris et les réglages.
+Les instantanés Premium peuvent être synchronisés entre vos appareils via votre compte Chrome/Edge/Firefox, grâce au `storage.sync` intégré au navigateur. Nous n'avons aucun serveur de synchronisation : les données vont au service de compte de l'éditeur du navigateur, là où sont également stockés les favoris et les réglages.
 
-- Activez-la dans **Paramètres → Synchronisation entre appareils**. Vous devez être connecté à Chrome ou Edge.
+- Activez-la dans **Paramètres → Synchronisation entre appareils**. Vous devez être connecté à Chrome, Edge ou Firefox.
 - Les instantanés locaux restent illimités et modifiables lorsque la synchronisation est désactivée.
 - Le quota est fixé par le navigateur (8 Ko par élément, ~100 Ko au total), donc les gros instantanés sont découpés en blocs. Un instantané qui ne tient pas reste enregistré localement et le panneau vous le signale.
 - Les suppressions sont synchronisées : un instantané supprimé avec la synchronisation active est aussi retiré de vos autres appareils.
@@ -88,7 +101,7 @@ Les instantanés Premium peuvent être synchronisés entre vos appareils via vot
 | Instantanés | Illimités | Illimités |
 | Remplissages | Illimités | Illimités |
 | Export / Import JSON | ✅ | ✅ |
-| Synchronisation entre appareils via compte Chrome/Edge | — | ✅ |
+| Synchronisation entre appareils via compte Chrome/Edge/Firefox | — | ✅ |
 | Support prioritaire | — | ✅ |
 
 ## Licence
