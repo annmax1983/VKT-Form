@@ -90,7 +90,7 @@ Las capturas Premium pueden sincronizarse entre dispositivos mediante tu cuenta 
 |---|---|
 | Chrome Web Store | [Instalar en Chrome](https://chromewebstore.google.com/detail/blghafafgccoglgpfmjmjnmlgdnmdonj) |
 | Complementos de Microsoft Edge | [Instalar en Edge](https://microsoftedge.microsoft.com/addons/detail/aejbpfaihkopjcpddgodddpoffpfoifd) |
-| Complementos de Firefox (AMO) | 🔜 En revisión: el enlace se añadirá al publicarse |
+| Complementos de Firefox (AMO) | [Instalar para Firefox](https://addons.mozilla.org/firefox/addon/vkt-form-fill/) |
 
 > Instale solo desde las tiendas oficiales de arriba; evite sitios de descarga de terceros.
 
@@ -107,3 +107,13 @@ Las capturas Premium pueden sincronizarse entre dispositivos mediante tu cuenta 
 ## Licencia
 
 Versión gratuita: capturas locales, rellenos, calibración y exportación/importación JSON ilimitados. Premium desbloquea la sincronización entre dispositivos mediante tu cuenta del navegador y el soporte prioritario.
+
+---
+
+## Enlaces
+
+- **Sitio oficial:** https://annmax1983.com/
+- **Esta extensión:** https://annmax1983.com/extensions/vkt-form
+- **Privacidad:** https://annmax1983.com/privacy
+- **Contacto:** support@annmax1983.com
+- **☕ Apoya el proyecto (Ko-fi):** https://ko-fi.com/annmax?ref=vkt-form

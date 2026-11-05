@@ -23,7 +23,7 @@ Eine Browser-Erweiterung, die Web-Formular-Snapshots speichert und sie später a
 |---|---|
 | Chrome Web Store | [In Chrome installieren](https://chromewebstore.google.com/detail/blghafafgccoglgpfmjmjnmlgdnmdonj) |
 | Microsoft Edge Add-ons | [In Edge installieren](https://microsoftedge.microsoft.com/addons/detail/aejbpfaihkopjcpddgodddpoffpfoifd) |
-| Firefox-Add-ons (AMO) | 🔜 In Prüfung – Link folgt nach der Freigabe |
+| Firefox-Add-ons (AMO) | [Für Firefox installieren](https://addons.mozilla.org/firefox/addon/vkt-form-fill/) |
 
 > Installieren Sie nur über die offiziellen Stores oben – meiden Sie Download-Seiten Dritter.
 
@@ -107,3 +107,13 @@ Premium-Snapshots können über Ihr Chrome-/Edge-/Firefox-Konto zwischen Geräte
 ## Lizenz
 
 Kostenlose Version: unbegrenzte lokale Snapshots, Füllungen, Kalibrierung sowie JSON-Export/-Import. Premium schaltet die geräteübergreifende Synchronisierung über Ihr Browserkonto und Priority Support frei.
+
+---
+
+## Links
+
+- **Offizielle Website:** https://annmax1983.com/
+- **Diese Erweiterung:** https://annmax1983.com/extensions/vkt-form
+- **Datenschutz:** https://annmax1983.com/privacy
+- **Kontakt:** support@annmax1983.com
+- **☕ Projekt unterstützen (Ko-fi):** https://ko-fi.com/annmax?ref=vkt-form

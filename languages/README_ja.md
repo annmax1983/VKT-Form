@@ -23,7 +23,7 @@ Webフォームのスナップショットを保存し、後から自動入力�
 |---|---|
 | Chrome ウェブストア | [Chrome に追加](https://chromewebstore.google.com/detail/blghafafgccoglgpfmjmjnmlgdnmdonj) |
 | Microsoft Edge アドオン | [Edge に追加](https://microsoftedge.microsoft.com/addons/detail/aejbpfaihkopjcpddgodddpoffpfoifd) |
-| Firefox アドオン（AMO） | 🔜 審査中 — 公開後にリンクを追加します |
+| Firefox アドオン（AMO） | [Firefox 版をインストール](https://addons.mozilla.org/firefox/addon/vkt-form-fill/) |
 
 > 上記の公式ストアからのみインストールしてください。第三者サイトの利用は避けてください。
 
@@ -107,3 +107,13 @@ Premium のスナップショットは、ブラウザ内蔵の `storage.sync` �
 ## ライセンス
 
 無料版：ローカルスナップショット、入力、調整、JSON エクスポート/インポートは無制限。Premium ではブラウザアカウント経由のデバイス間同期と優先サポートが利用できます。
+
+---
+
+## リンク
+
+- **公式サイト:** https://annmax1983.com/
+- **この拡張機能:** https://annmax1983.com/extensions/vkt-form
+- **プライバシーポリシー:** https://annmax1983.com/privacy
+- **お問い合わせ:** support@annmax1983.com
+- **☕ 開発を支援（Ko-fi）:** https://ko-fi.com/annmax?ref=vkt-form

@@ -23,7 +23,7 @@ Une extension de navigateur qui sauvegarde des instantanés de formulaires web e
 |---|---|
 | Chrome Web Store | [Installer dans Chrome](https://chromewebstore.google.com/detail/blghafafgccoglgpfmjmjnmlgdnmdonj) |
 | Microsoft Edge Add-ons | [Installer dans Edge](https://microsoftedge.microsoft.com/addons/detail/aejbpfaihkopjcpddgodddpoffpfoifd) |
-| Modules complémentaires Firefox (AMO) | 🔜 En cours d’examen — le lien sera ajouté après publication |
+| Modules complémentaires Firefox (AMO) | [Installer pour Firefox](https://addons.mozilla.org/firefox/addon/vkt-form-fill/) |
 
 > Installez uniquement depuis les boutiques officielles ci-dessus — évitez les sites de téléchargement tiers.
 
@@ -107,3 +107,13 @@ Les instantanés Premium peuvent être synchronisés entre vos appareils via vot
 ## Licence
 
 Version gratuite : instantanés locaux, remplissages, calibration et export/import JSON illimités. Premium débloque la synchronisation entre appareils via votre compte de navigateur et le support prioritaire.
+
+---
+
+## Liens
+
+- **Site officiel:** https://annmax1983.com/
+- **Cette extension:** https://annmax1983.com/extensions/vkt-form
+- **Confidentialité:** https://annmax1983.com/privacy
+- **Contact:** support@annmax1983.com
+- **☕ Soutenir le projet (Ko-fi):** https://ko-fi.com/annmax?ref=vkt-form

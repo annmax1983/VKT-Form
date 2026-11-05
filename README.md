@@ -19,7 +19,7 @@ A local-first browser extension that saves web form snapshots and auto-fills the
 |---|---|
 | Chrome Web Store | [Install for Chrome](https://chromewebstore.google.com/detail/blghafafgccoglgpfmjmjnmlgdnmdonj) |
 | Microsoft Edge Add-ons | [Install for Edge](https://microsoftedge.microsoft.com/addons/detail/aejbpfaihkopjcpddgodddpoffpfoifd) |
-| Firefox Add-ons (AMO) | 🔜 Under review — link will be added once the listing is live |
+| Firefox Add-ons (AMO) | [Install for Firefox](https://addons.mozilla.org/firefox/addon/vkt-form-fill/) |
 
 > Install only from the official stores above — avoid third-party download sites.
 
@@ -128,3 +128,13 @@ Premium snapshots can sync between devices through your browser account, using t
 ## License
 
 Free version: unlimited local snapshots, fills, calibration, and JSON export/import. Premium unlocks cross-device sync through your browser account and priority support.
+
+---
+
+## Links
+
+- **Official website:** https://annmax1983.com/
+- **This extension:** https://annmax1983.com/extensions/vkt-form
+- **Privacy policy:** https://annmax1983.com/privacy
+- **Contact:** support@annmax1983.com
+- **☕ Support this project (Ko-fi):** https://ko-fi.com/annmax?ref=vkt-form

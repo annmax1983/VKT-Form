@@ -64,7 +64,7 @@
 |---|---|
 | Chrome 应用商店 | [在 Chrome 中安装](https://chromewebstore.google.com/detail/blghafafgccoglgpfmjmjnmlgdnmdonj) |
 | Microsoft Edge 加载项 | [在 Edge 中安装](https://microsoftedge.microsoft.com/addons/detail/aejbpfaihkopjcpddgodddpoffpfoifd) |
-| Firefox 附加组件（AMO） | 🔜 审核中，上架后补充链接 |
+| Firefox 附加组件（AMO） | [安装 Firefox 版](https://addons.mozilla.org/firefox/addon/vkt-form-fill/) |
 
 > 请只通过上方官方商店安装，避免使用第三方下载站。
 
@@ -172,3 +172,13 @@ vkt-form 以隐私为核心设计原则：
 如果你觉得 vkt-form 有帮助，欢迎支持我们！
 
 **[👉 支持 vkt-form](https://annmax1983.github.io/VKT-Form/)**
+
+---
+
+## 链接
+
+- **官方网站:** https://annmax1983.com/
+- **本插件:** https://annmax1983.com/extensions/vkt-form
+- **隐私政策:** https://annmax1983.com/privacy
+- **联系:** support@annmax1983.com
+- **☕ 支持这个项目（Ko-fi）:** https://ko-fi.com/annmax?ref=vkt-form
