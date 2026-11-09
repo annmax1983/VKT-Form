@@ -36,10 +36,9 @@ A local-first browser extension that saves web form snapshots and auto-fills the
 > - Firefox has no debugger API for extensions, so **debugger mode** is not offered there; the other four filling strategies — native setter + events, commit triggers, the real editing pipeline and component adapters — work exactly as on Chrome and Edge.
 > - Firefox asks for `storage`, `activeTab`, `scripting` and `<all_urls>`. The `sidePanel` and `debugger` permissions are Chrome / Edge only.
 
-
 ## Features
 
-- **One-click form collection** — Scan and save all form fields on any page
+- **One-click form collection** — Scan and save the form fields on any page (password fields only if you opt in)
 - **Framework-aware auto-fill** — Writes through the native value setter and the browser's own editing pipeline, so Vue / React / Angular controlled components actually update their state
 - **Deep field detection** — Shadow DOM, iframes and rich-text editors included; the inactive steps of a multi-step form are captured too
 - **Read-back verification** — Every field is verified after writing; failures are reported instead of silently ignored
@@ -104,7 +103,7 @@ Premium snapshots can sync between devices through your browser account, using t
 - Local snapshots stay unlimited and editable with sync off.
 - The browser sets the quota (8 KB per item, ~100 KB total), so large snapshots are split into chunks. A snapshot that does not fit stays saved locally and the panel tells you.
 - Deletions sync too: a snapshot deleted while sync is on is removed from your other devices.
-- Sensitive values are stored in plain text and are included in sync like any other field.
+- Password fields are not collected unless you turn on **Settings → Include password fields**. Everything that is collected is stored in plain text and synced like any other field.
 - Turning sync off stops further syncing but does not erase copies already in your browser account.
 
 ## Free vs Premium
@@ -121,11 +120,15 @@ Premium snapshots can sync between devices through your browser account, using t
 
 ## Source Code Notice
 
-> ⚠️ **This repository does not publish source code.** It contains only usage documentation, release notes, and support resources. The extension is distributed exclusively through the Chrome Web Store, Microsoft Edge Add-ons and Firefox Add-ons (AMO). No offline installation packages or end-user source code are provided.
+> ⚠️ **This repository is for project showcase only — the full source code is not published here.** It contains the user documentation, release notes and support information for the extension.
+
+> 📥 **Download and install only from the official browser stores:** Chrome Web Store · Microsoft Edge Add-ons · Firefox Add-ons (AMO). No offline installation package is distributed from this repository.
 
 ---
 
 ## License
+
+This software is proprietary and closed-source. Without prior written authorization from the author, decompiling, reverse-engineering, cracking, modifying, repackaging, redistributing or reselling the program (in whole or in part) is strictly prohibited.
 
 Free version: unlimited local snapshots, fills, calibration, and JSON export/import. Premium unlocks cross-device sync through your browser account and priority support.
 

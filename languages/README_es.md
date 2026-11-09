@@ -6,7 +6,7 @@ Una extensión para el navegador que guarda capturas de formularios web y los re
 
 ## Funcionalidades
 
-- **Recopilación de formularios con un clic** — Escanea y guarda todos los campos de formulario de cualquier página
+- **Recopilación de formularios con un clic** — Escanea y guarda los campos del formulario de cualquier página (las contraseñas solo si lo activas)
 - **Detección profunda** — Incluye Shadow DOM, iframes y editores de texto enriquecido, y también los pasos ocultos de un formulario por etapas
 - **Autocompletado consciente del framework** — Escribe mediante el setter nativo y el propio flujo de edición del navegador, así que los componentes controlados de Vue / React / Angular sí actualizan su estado
 - **Verificación posterior** — Cada campo se lee de vuelta tras escribirlo; los fallos se muestran en lugar de ignorarse
@@ -68,7 +68,7 @@ Las capturas Premium pueden sincronizarse entre dispositivos mediante tu cuenta 
 - Las capturas locales siguen siendo ilimitadas y editables con la sincronización desactivada.
 - El navegador fija la cuota (8 KB por elemento, ~100 KB en total), así que las capturas grandes se dividen en bloques. Una captura que no cabe se queda guardada localmente y el panel te lo indica.
 - Las eliminaciones también se sincronizan: una captura eliminada con la sincronización activa se borra de tus otros dispositivos.
-- Los valores sensibles se guardan en texto plano y se sincronizan como cualquier otro campo.
+- Los campos de contraseña no se recopilan por defecto (actívalos en **Ajustes → "Incluir campos de contraseña"**). Todo lo recopilado se guarda en texto plano y se sincroniza como cualquier otro campo.
 - Desactivar la sincronización detiene los futuros intercambios, pero no borra las copias que ya estén en tu cuenta del navegador.
 
 ## Navegadores compatibles
@@ -104,7 +104,17 @@ Las capturas Premium pueden sincronizarse entre dispositivos mediante tu cuenta 
 | Sincronización entre dispositivos mediante cuenta de Chrome/Edge/Firefox | — | ✅ |
 | Soporte prioritario | — | ✅ |
 
+## Aviso sobre el código fuente
+
+> ⚠️ **Este repositorio es solo para presentar el proyecto: el código fuente completo no se publica aquí.** Solo contiene la documentación de uso, las notas de versión y la información de soporte de la extensión.
+
+> 📥 **Descárgala e instálala únicamente desde las tiendas oficiales de navegadores:** Chrome Web Store · Microsoft Edge Add-ons · Complementos de Firefox (AMO). Desde aquí no se distribuye ningún instalador sin conexión.
+
+---
+
 ## Licencia
+
+Este software es propietario y de código cerrado. Sin autorización previa por escrito del autor, queda estrictamente prohibido descompilar, aplicar ingeniería inversa, crackear, modificar, reempaquetar, redistribuir o revender el programa (total o parcialmente).
 
 Versión gratuita: capturas locales, rellenos, calibración y exportación/importación JSON ilimitados. Premium desbloquea la sincronización entre dispositivos mediante tu cuenta del navegador y el soporte prioritario.
 

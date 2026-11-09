@@ -29,7 +29,7 @@ Une extension de navigateur qui sauvegarde des instantanés de formulaires web e
 
 ## Fonctionnalités
 
-- **Collecte de formulaire en un clic** — Scannez et sauvegardez tous les champs de formulaire de n'importe quelle page
+- **Collecte de formulaire en un clic** — Scannez et sauvegardez les champs de formulaire de n'importe quelle page (les mots de passe seulement si vous l'activez)
 - **Détection approfondie** — Shadow DOM, iframes et éditeurs de texte riche inclus, ainsi que les étapes masquées d'un formulaire à plusieurs étapes
 - **Auto-remplissage conscient du framework** — Écrit via le setter natif et le véritable pipeline d'édition du navigateur, donc les composants contrôlés de Vue / React / Angular mettent réellement à jour leur état
 - **Vérification après écriture** — Chaque champ est relu après écriture ; les échecs sont signalés au lieu d'être ignorés
@@ -91,7 +91,7 @@ Les instantanés Premium peuvent être synchronisés entre vos appareils via vot
 - Les instantanés locaux restent illimités et modifiables lorsque la synchronisation est désactivée.
 - Le quota est fixé par le navigateur (8 Ko par élément, ~100 Ko au total), donc les gros instantanés sont découpés en blocs. Un instantané qui ne tient pas reste enregistré localement et le panneau vous le signale.
 - Les suppressions sont synchronisées : un instantané supprimé avec la synchronisation active est aussi retiré de vos autres appareils.
-- Les valeurs sensibles sont stockées en clair et synchronisées comme n'importe quel autre champ.
+- Les champs de mot de passe ne sont pas collectés par défaut (activez **Paramètres → « Inclure les champs de mot de passe »**). Tout ce qui est collecté est stocké en clair et synchronisé comme n'importe quel autre champ.
 - Désactiver la synchronisation arrête les échanges futurs mais n'efface pas les copies déjà présentes dans votre compte de navigateur.
 
 ## Gratuit vs Premium
@@ -104,7 +104,17 @@ Les instantanés Premium peuvent être synchronisés entre vos appareils via vot
 | Synchronisation entre appareils via compte Chrome/Edge/Firefox | — | ✅ |
 | Support prioritaire | — | ✅ |
 
+## Avis sur le code source
+
+> ⚠️ **Ce dépôt sert uniquement à la présentation du projet — le code source complet n'y est pas publié.** Il ne contient que la documentation d'utilisation, les notes de version et les informations d'assistance de l'extension.
+
+> 📥 **Téléchargement et installation uniquement depuis les boutiques officielles :** Chrome Web Store · Microsoft Edge Add-ons · Modules complémentaires Firefox (AMO). Aucun installateur hors ligne n'est distribué ici.
+
+---
+
 ## Licence
+
+Ce logiciel est propriétaire et à code fermé. Sans autorisation écrite préalable de l'auteur, la décompilation, l'ingénierie inverse, le crackage, la modification, le reconditionnement, la redistribution ou la revente du logiciel (en tout ou en partie) sont strictement interdites.
 
 Version gratuite : instantanés locaux, remplissages, calibration et export/import JSON illimités. Premium débloque la synchronisation entre appareils via votre compte de navigateur et le support prioritaire.
 

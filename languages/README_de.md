@@ -29,7 +29,7 @@ Eine Browser-Erweiterung, die Web-Formular-Snapshots speichert und sie später a
 
 ## Funktionen
 
-- **Ein-Klick-Formular-Erfassung** — Scannt und speichert alle Formularfelder auf jeder beliebigen Seite
+- **Ein-Klick-Formular-Erfassung** — Scannt und speichert die Formularfelder auf jeder beliebigen Seite (Passwortfelder nur, wenn Sie es aktivieren)
 - **Tiefe Felderkennung** — Inklusive Shadow DOM, iframes und Rich-Text-Editoren sowie der inaktiven Schritte eines mehrstufigen Formulars
 - **Framework-bewusstes Auto-Fill** — Schreibt über den nativen Setter und die echte Bearbeitungspipeline des Browsers, sodass kontrollierte Komponenten von Vue / React / Angular ihren Zustand tatsächlich aktualisieren
 - **Rücklese-Prüfung** — Jedes Feld wird nach dem Schreiben zurückgelesen; Fehlschläge werden gemeldet statt stillschweigend ignoriert
@@ -91,7 +91,7 @@ Premium-Snapshots können über Ihr Chrome-/Edge-/Firefox-Konto zwischen Geräte
 - Lokale Snapshots bleiben unbegrenzt und bearbeitbar, auch wenn die Synchronisierung aus ist.
 - Das Kontingent legt der Browser fest (8 KB pro Element, insgesamt ca. 100 KB), daher werden große Snapshots in Blöcke aufgeteilt. Ein Snapshot, der nicht passt, bleibt lokal gespeichert, und das Panel informiert Sie.
 - Löschungen werden ebenfalls synchronisiert: Ein bei aktiver Synchronisierung gelöschter Snapshot wird auch auf Ihren anderen Geräten entfernt.
-- Sensible Werte werden im Klartext gespeichert und beim Synchronisieren wie jedes andere Feld übertragen.
+- Passwortfelder werden standardmäßig nicht erfasst (erst mit **Einstellungen → "Passwortfelder einschließen"**). Alles Erfasste wird im Klartext gespeichert und beim Synchronisieren wie jedes andere Feld übertragen.
 - Das Ausschalten der Synchronisierung stoppt weitere Abgleiche, löscht aber keine Kopien, die bereits im Browserkonto liegen.
 
 ## Kostenlos vs. Premium
@@ -104,7 +104,17 @@ Premium-Snapshots können über Ihr Chrome-/Edge-/Firefox-Konto zwischen Geräte
 | Geräteübergreifende Synchronisierung über Chrome-/Edge-/Firefox-Konto | — | ✅ |
 | Priority Support | — | ✅ |
 
+## Hinweis zum Quellcode
+
+> ⚠️ **Dieses Repository dient ausschließlich der Projektpräsentation — der vollständige Quellcode wird hier nicht veröffentlicht.** Es enthält nur die Nutzungsdokumentation, die Release-Notizen und Support-Informationen zur Erweiterung.
+
+> 📥 **Installation ausschließlich über die offiziellen Browser-Stores:** Chrome Web Store · Microsoft Edge Add-ons · Firefox-Add-ons (AMO). Von hier werden keine Offline-Installer verteilt.
+
+---
+
 ## Lizenz
+
+Diese Software ist proprietär und quellgeschlossen. Ohne vorherige schriftliche Genehmigung des Autors ist das Dekompilieren, Reverse-Engineering, Knacken, Verändern, Neuverpacken, Weiterverbreiten oder Weiterverkaufen der Software (ganz oder teilweise) streng untersagt.
 
 Kostenlose Version: unbegrenzte lokale Snapshots, Füllungen, Kalibrierung sowie JSON-Export/-Import. Premium schaltet die geräteübergreifende Synchronisierung über Ihr Browserkonto und Priority Support frei.
 
