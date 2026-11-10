@@ -2,7 +2,7 @@
 
 [English](../README.md) | [中文](README_zh.md) | Español | [Deutsch](README_de.md) | [日本語](README_ja.md) | [Français](README_fr.md)
 
-Una extensión para el navegador que guarda capturas de formularios web y los rellena automáticamente después. Los datos permanecen en tu navegador de forma predeterminada; Premium puede sincronizar opcionalmente las capturas entre dispositivos mediante tu cuenta de Chrome/Edge/Firefox.
+Una extensión para el navegador que guarda capturas de formularios web y los rellena automáticamente después. Los datos permanecen en tu navegador de forma predeterminada; Pro puede sincronizar opcionalmente las capturas entre dispositivos mediante tu cuenta de Chrome/Edge/Firefox.
 
 ## Funcionalidades
 
@@ -11,10 +11,10 @@ Una extensión para el navegador que guarda capturas de formularios web y los re
 - **Autocompletado consciente del framework** — Escribe mediante el setter nativo y el propio flujo de edición del navegador, así que los componentes controlados de Vue / React / Angular sí actualizan su estado
 - **Verificación posterior** — Cada campo se lee de vuelta tras escribirlo; los fallos se muestran en lugar de ignorarse
 - **Calibración de campos** — Vincula un campo a un elemento de la página una vez y se rellenará siempre
-- **Local por defecto** — Las capturas viven en `storage.local`; nada se sube salvo que actives la sincronización Premium
+- **Local por defecto** — Las capturas viven en `storage.local`; nada se sube salvo que actives la sincronización Pro
 - **Capturas y rellenados ilimitados** — Sin límite en la versión gratuita
 - **Exportar/Importar** — Respaldo y restauración JSON, gratis para todos
-- **Sincronización entre dispositivos (Premium)** — Opcional mediante tu cuenta de Chrome/Edge/Firefox; sin servidor de sincronización propio
+- **Sincronización entre dispositivos (Pro)** — Opcional mediante tu cuenta de Chrome/Edge/Firefox; sin servidor de sincronización propio
 
 ## Cómo funciona
 
@@ -60,9 +60,9 @@ La clave de cada captura es el nombre que le pongas, y cada una guarda la URL no
 - Las barras finales se normalizan
 - Opcional: mantener la ruta hash para aplicaciones SPA (interruptor en Configuración)
 
-## Sincronización entre dispositivos (Premium)
+## Sincronización entre dispositivos (Pro)
 
-Las capturas Premium pueden sincronizarse entre dispositivos mediante tu cuenta de Chrome/Edge/Firefox, usando el `storage.sync` integrado en el navegador. No hay ningún servidor de sincronización nuestro: los datos van al servicio de cuenta del fabricante del navegador, el mismo lugar donde se guardan los marcadores y la configuración.
+Las capturas Pro pueden sincronizarse entre dispositivos mediante tu cuenta de Chrome/Edge/Firefox, usando el `storage.sync` integrado en el navegador. No hay ningún servidor de sincronización nuestro: los datos van al servicio de cuenta del fabricante del navegador, el mismo lugar donde se guardan los marcadores y la configuración.
 
 - Actívala en **Configuración → Sincronización entre dispositivos**. Necesitas haber iniciado sesión en Chrome, Edge o Firefox.
 - Las capturas locales siguen siendo ilimitadas y editables con la sincronización desactivada.
@@ -94,9 +94,9 @@ Las capturas Premium pueden sincronizarse entre dispositivos mediante tu cuenta 
 
 > Instale solo desde las tiendas oficiales de arriba; evite sitios de descarga de terceros.
 
-## Gratis vs Premium
+## Gratis vs Pro
 
-| | Gratis | Premium |
+| | Gratis | Pro |
 |---|:---:|:---:|
 | Capturas | Ilimitadas | Ilimitadas |
 | Rellenos | Ilimitados | Ilimitados |
@@ -116,7 +116,7 @@ Las capturas Premium pueden sincronizarse entre dispositivos mediante tu cuenta 
 
 Este software es propietario y de código cerrado. Sin autorización previa por escrito del autor, queda estrictamente prohibido descompilar, aplicar ingeniería inversa, crackear, modificar, reempaquetar, redistribuir o revender el programa (total o parcialmente).
 
-Versión gratuita: capturas locales, rellenos, calibración y exportación/importación JSON ilimitados. Premium desbloquea la sincronización entre dispositivos mediante tu cuenta del navegador y el soporte prioritario.
+Versión gratuita: capturas locales, rellenos, calibración y exportación/importación JSON ilimitados. Pro desbloquea la sincronización entre dispositivos mediante tu cuenta del navegador y el soporte prioritario.
 
 ---
 

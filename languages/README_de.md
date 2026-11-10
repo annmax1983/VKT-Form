@@ -2,7 +2,7 @@
 
 [English](../README.md) | [中文](README_zh.md) | [Español](README_es.md) | Deutsch | [日本語](README_ja.md) | [Français](README_fr.md)
 
-Eine Browser-Erweiterung, die Web-Formular-Snapshots speichert und sie später automatisch ausfüllt. Daten bleiben standardmäßig lokal; Premium kann Snapshots optional über Ihr Chrome-/Edge-/Firefox-Konto zwischen Geräten synchronisieren.
+Eine Browser-Erweiterung, die Web-Formular-Snapshots speichert und sie später automatisch ausfüllt. Daten bleiben standardmäßig lokal; Pro kann Snapshots optional über Ihr Chrome-/Edge-/Firefox-Konto zwischen Geräten synchronisieren.
 
 ## Unterstützte Browser
 
@@ -34,10 +34,10 @@ Eine Browser-Erweiterung, die Web-Formular-Snapshots speichert und sie später a
 - **Framework-bewusstes Auto-Fill** — Schreibt über den nativen Setter und die echte Bearbeitungspipeline des Browsers, sodass kontrollierte Komponenten von Vue / React / Angular ihren Zustand tatsächlich aktualisieren
 - **Rücklese-Prüfung** — Jedes Feld wird nach dem Schreiben zurückgelesen; Fehlschläge werden gemeldet statt stillschweigend ignoriert
 - **Feld-Kalibrierung** — Verknüpfen Sie ein Feld einmal mit einem Element auf der Seite, danach wird es immer ausgefüllt
-- **Standardmäßig lokal** — Snapshots liegen in `storage.local`; nichts wird hochgeladen, solange Sie die Premium-Synchronisierung nicht aktivieren
+- **Standardmäßig lokal** — Snapshots liegen in `storage.local`; nichts wird hochgeladen, solange Sie die Pro-Synchronisierung nicht aktivieren
 - **Unbegrenzte Snapshots und Füllungen** — Keine Beschränkung in der kostenlosen Version
 - **Export/Import** — JSON-Backup und Wiederherstellung, kostenlos für alle
-- **Geräteübergreifende Synchronisierung (Premium)** — Optional über Ihr Chrome-/Edge-/Firefox-Konto; kein eigener Sync-Server
+- **Geräteübergreifende Synchronisierung (Pro)** — Optional über Ihr Chrome-/Edge-/Firefox-Konto; kein eigener Sync-Server
 
 ## So funktioniert es
 
@@ -83,9 +83,9 @@ Gespeichert wird ein Snapshot unter dem Namen, den Sie vergeben; jeder Snapshot 
 - Abschließende Schrägstriche werden normalisiert
 - Optional: Hash-Route für SPA-Apps beibehalten (Schalter in Einstellungen)
 
-## Geräteübergreifende Synchronisierung (Premium)
+## Geräteübergreifende Synchronisierung (Pro)
 
-Premium-Snapshots können über Ihr Chrome-/Edge-/Firefox-Konto zwischen Geräten synchronisiert werden, mithilfe des browserinternen `storage.sync`. Es gibt keinen Sync-Server von uns: Die Daten landen im Kontospeicher Ihres Browserherstellers – dort, wo auch Lesezeichen und Einstellungen liegen.
+Pro-Snapshots können über Ihr Chrome-/Edge-/Firefox-Konto zwischen Geräten synchronisiert werden, mithilfe des browserinternen `storage.sync`. Es gibt keinen Sync-Server von uns: Die Daten landen im Kontospeicher Ihres Browserherstellers – dort, wo auch Lesezeichen und Einstellungen liegen.
 
 - Aktivieren Sie die Funktion unter **Einstellungen → Geräteübergreifende Synchronisierung**. Sie müssen in Chrome, Edge oder Firefox angemeldet sein.
 - Lokale Snapshots bleiben unbegrenzt und bearbeitbar, auch wenn die Synchronisierung aus ist.
@@ -94,9 +94,9 @@ Premium-Snapshots können über Ihr Chrome-/Edge-/Firefox-Konto zwischen Geräte
 - Passwortfelder werden standardmäßig nicht erfasst (erst mit **Einstellungen → "Passwortfelder einschließen"**). Alles Erfasste wird im Klartext gespeichert und beim Synchronisieren wie jedes andere Feld übertragen.
 - Das Ausschalten der Synchronisierung stoppt weitere Abgleiche, löscht aber keine Kopien, die bereits im Browserkonto liegen.
 
-## Kostenlos vs. Premium
+## Kostenlos vs. Pro
 
-| | Kostenlos | Premium |
+| | Kostenlos | Pro |
 |---|:---:|:---:|
 | Snapshots | Unbegrenzt | Unbegrenzt |
 | Füllungen | Unbegrenzt | Unbegrenzt |
@@ -116,7 +116,7 @@ Premium-Snapshots können über Ihr Chrome-/Edge-/Firefox-Konto zwischen Geräte
 
 Diese Software ist proprietär und quellgeschlossen. Ohne vorherige schriftliche Genehmigung des Autors ist das Dekompilieren, Reverse-Engineering, Knacken, Verändern, Neuverpacken, Weiterverbreiten oder Weiterverkaufen der Software (ganz oder teilweise) streng untersagt.
 
-Kostenlose Version: unbegrenzte lokale Snapshots, Füllungen, Kalibrierung sowie JSON-Export/-Import. Premium schaltet die geräteübergreifende Synchronisierung über Ihr Browserkonto und Priority Support frei.
+Kostenlose Version: unbegrenzte lokale Snapshots, Füllungen, Kalibrierung sowie JSON-Export/-Import. Pro schaltet die geräteübergreifende Synchronisierung über Ihr Browserkonto und Priority Support frei.
 
 ---
 

@@ -2,7 +2,7 @@
 
 [English](../README.md) | [中文](README_zh.md) | [Español](README_es.md) | [Deutsch](README_de.md) | [日本語](README_ja.md) | Français
 
-Une extension de navigateur qui sauvegarde des instantanés de formulaires web et les remplit automatiquement plus tard. Les données restent dans votre navigateur par défaut ; Premium peut synchroniser en option les instantanés entre vos appareils via votre compte Chrome/Edge/Firefox.
+Une extension de navigateur qui sauvegarde des instantanés de formulaires web et les remplit automatiquement plus tard. Les données restent dans votre navigateur par défaut ; Pro peut synchroniser en option les instantanés entre vos appareils via votre compte Chrome/Edge/Firefox.
 
 ## Navigateurs pris en charge
 
@@ -34,10 +34,10 @@ Une extension de navigateur qui sauvegarde des instantanés de formulaires web e
 - **Auto-remplissage conscient du framework** — Écrit via le setter natif et le véritable pipeline d'édition du navigateur, donc les composants contrôlés de Vue / React / Angular mettent réellement à jour leur état
 - **Vérification après écriture** — Chaque champ est relu après écriture ; les échecs sont signalés au lieu d'être ignorés
 - **Calibration des champs** — Associez un champ à un élément de la page une fois, il sera toujours rempli ensuite
-- **Local par défaut** — Les instantanés résident dans `storage.local` ; rien n'est envoyé tant que vous n'activez pas la synchronisation Premium
+- **Local par défaut** — Les instantanés résident dans `storage.local` ; rien n'est envoyé tant que vous n'activez pas la synchronisation Pro
 - **Instantanés et remplissages illimités** — Aucune limite dans la version gratuite
 - **Export/Import** — Sauvegarde et restauration JSON, gratuites pour tous
-- **Synchronisation entre appareils (Premium)** — En option via votre compte Chrome/Edge/Firefox ; aucun serveur de synchronisation de notre côté
+- **Synchronisation entre appareils (Pro)** — En option via votre compte Chrome/Edge/Firefox ; aucun serveur de synchronisation de notre côté
 
 ## Fonctionnement
 
@@ -83,9 +83,9 @@ La clé d'un instantané est le nom que vous lui donnez, et chacun enregistre l'
 - Barres obliques finales normalisées
 - Optionnel : conserver le hash route pour les applications SPA (bascule dans les Paramètres)
 
-## Synchronisation entre appareils (Premium)
+## Synchronisation entre appareils (Pro)
 
-Les instantanés Premium peuvent être synchronisés entre vos appareils via votre compte Chrome/Edge/Firefox, grâce au `storage.sync` intégré au navigateur. Nous n'avons aucun serveur de synchronisation : les données vont au service de compte de l'éditeur du navigateur, là où sont également stockés les favoris et les réglages.
+Les instantanés Pro peuvent être synchronisés entre vos appareils via votre compte Chrome/Edge/Firefox, grâce au `storage.sync` intégré au navigateur. Nous n'avons aucun serveur de synchronisation : les données vont au service de compte de l'éditeur du navigateur, là où sont également stockés les favoris et les réglages.
 
 - Activez-la dans **Paramètres → Synchronisation entre appareils**. Vous devez être connecté à Chrome, Edge ou Firefox.
 - Les instantanés locaux restent illimités et modifiables lorsque la synchronisation est désactivée.
@@ -94,9 +94,9 @@ Les instantanés Premium peuvent être synchronisés entre vos appareils via vot
 - Les champs de mot de passe ne sont pas collectés par défaut (activez **Paramètres → « Inclure les champs de mot de passe »**). Tout ce qui est collecté est stocké en clair et synchronisé comme n'importe quel autre champ.
 - Désactiver la synchronisation arrête les échanges futurs mais n'efface pas les copies déjà présentes dans votre compte de navigateur.
 
-## Gratuit vs Premium
+## Gratuit vs Pro
 
-| | Gratuit | Premium |
+| | Gratuit | Pro |
 |---|:---:|:---:|
 | Instantanés | Illimités | Illimités |
 | Remplissages | Illimités | Illimités |
@@ -116,7 +116,7 @@ Les instantanés Premium peuvent être synchronisés entre vos appareils via vot
 
 Ce logiciel est propriétaire et à code fermé. Sans autorisation écrite préalable de l'auteur, la décompilation, l'ingénierie inverse, le crackage, la modification, le reconditionnement, la redistribution ou la revente du logiciel (en tout ou en partie) sont strictement interdites.
 
-Version gratuite : instantanés locaux, remplissages, calibration et export/import JSON illimités. Premium débloque la synchronisation entre appareils via votre compte de navigateur et le support prioritaire.
+Version gratuite : instantanés locaux, remplissages, calibration et export/import JSON illimités. Pro débloque la synchronisation entre appareils via votre compte de navigateur et le support prioritaire.
 
 ---
 

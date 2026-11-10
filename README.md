@@ -2,7 +2,7 @@
 
 English | [中文](languages/README_zh.md) | [Español](languages/README_es.md) | [Deutsch](languages/README_de.md) | [日本語](languages/README_ja.md) | [Français](languages/README_fr.md)
 
-A local-first browser extension that saves web form snapshots and auto-fills them later. Data stays in your browser; Premium can optionally sync snapshots between your devices through your browser account (Chrome, Edge or Firefox Sync). Runs on Chrome, Edge and Firefox.
+A local-first browser extension that saves web form snapshots and auto-fills them later. Data stays in your browser; Pro can optionally sync snapshots between your devices through your browser account (Chrome, Edge or Firefox Sync). Runs on Chrome, Edge and Firefox.
 
 ## Highlights
 
@@ -11,7 +11,7 @@ A local-first browser extension that saves web form snapshots and auto-fills the
 - **Tells the truth** — every write is read back and verified; unmatched fields are reported, never filled into the wrong box.
 - **Handles the long tail** — one-time field calibration for pages that heuristics cannot solve.
 - **Local-first and unlimited** — no snapshot or fill cap; JSON export/import is free for everyone.
-- **Optional sync** — Premium can keep devices in step through your browser account (Chrome / Edge / Firefox Sync), with no sync server of ours.
+- **Optional sync** — Pro can keep devices in step through your browser account (Chrome / Edge / Firefox Sync), with no sync server of ours.
 
 ## Installation
 
@@ -43,10 +43,10 @@ A local-first browser extension that saves web form snapshots and auto-fills the
 - **Deep field detection** — Shadow DOM, iframes and rich-text editors included; the inactive steps of a multi-step form are captured too
 - **Read-back verification** — Every field is verified after writing; failures are reported instead of silently ignored
 - **Field calibration** — Bind a field to an element on the page once and it fills forever after
-- **Local-first** — Snapshots live in the extension's local storage (`storage.local`); nothing is uploaded unless you turn on Premium cross-device sync
+- **Local-first** — Snapshots live in the extension's local storage (`storage.local`); nothing is uploaded unless you turn on Pro cross-device sync
 - **Unlimited snapshots and fills** — No free-tier cap
 - **Export/Import** — JSON backup and restore, free for everyone
-- **Cross-device sync (Premium)** — Optional sync through your browser account (Chrome / Edge / Firefox Sync); no sync server of ours
+- **Cross-device sync (Pro)** — Optional sync through your browser account (Chrome / Edge / Firefox Sync); no sync server of ours
 - **6 languages** — English, 中文, 日本語, Deutsch, Español, Français; auto-detected from the browser
 
 ## Usage
@@ -55,7 +55,7 @@ A local-first browser extension that saves web form snapshots and auto-fills the
 2. **Fill** — click **Fill** to match the current page, or **Fill this** on a saved snapshot.
 3. **Calibrate if needed** — open the snapshot's 🎯 panel, click **Bind**, then click the field on the page. The binding is saved with the snapshot and always takes priority.
 4. **Back up** — use the export/import icons to save or restore all snapshots as JSON.
-5. **Sync (Premium)** — open **Settings → Cross-device sync**, sign in to your browser account (Chrome, Edge or Firefox), and turn it on. Use **Sync now** for an immediate refresh.
+5. **Sync (Pro)** — open **Settings → Cross-device sync**, sign in to your browser account (Chrome, Edge or Firefox), and turn it on. Use **Sync now** for an immediate refresh.
 
 ## Field Matching
 
@@ -95,9 +95,9 @@ Snapshots are keyed by the name you give them, and each one stores the page's no
 - Trailing slashes normalized
 - Optional: keep hash route for SPA apps (toggle in Settings)
 
-## Cross-device Sync (Premium)
+## Cross-device Sync (Pro)
 
-Premium snapshots can sync between devices through your browser account, using the browser's built-in sync storage (`storage.sync`). There is no sync server of ours: the data goes to your browser vendor's account sync (Chrome Sync, Edge Sync or Firefox Sync), the same place bookmarks and settings go.
+Pro snapshots can sync between devices through your browser account, using the browser's built-in sync storage (`storage.sync`). There is no sync server of ours: the data goes to your browser vendor's account sync (Chrome Sync, Edge Sync or Firefox Sync), the same place bookmarks and settings go.
 
 - Turn it on in **Settings → Cross-device sync**. You need to be signed in to your browser account (Chrome, Edge or Firefox).
 - Local snapshots stay unlimited and editable with sync off.
@@ -106,9 +106,9 @@ Premium snapshots can sync between devices through your browser account, using t
 - Password fields are not collected unless you turn on **Settings → Include password fields**. Everything that is collected is stored in plain text and synced like any other field.
 - Turning sync off stops further syncing but does not erase copies already in your browser account.
 
-## Free vs Premium
+## Free vs Pro
 
-| | Free | Premium |
+| | Free | Pro |
 |---|:---:|:---:|
 | Snapshots | Unlimited | Unlimited |
 | Fills | Unlimited | Unlimited |
@@ -130,7 +130,7 @@ Premium snapshots can sync between devices through your browser account, using t
 
 This software is proprietary and closed-source. Without prior written authorization from the author, decompiling, reverse-engineering, cracking, modifying, repackaging, redistributing or reselling the program (in whole or in part) is strictly prohibited.
 
-Free version: unlimited local snapshots, fills, calibration, and JSON export/import. Premium unlocks cross-device sync through your browser account and priority support.
+Free version: unlimited local snapshots, fills, calibration, and JSON export/import. Pro unlocks cross-device sync through your browser account and priority support.
 
 ---
 
